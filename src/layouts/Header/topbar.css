@@ -1,14 +1,23 @@
 .topbar{
-    color:inherit;
+    color:var(--text-theme);
     display: flex;
     background-color: var(--bg-theme);
-}
-
-.topbar li{
-    width:100%;
     text-align:center;
+    box-shadow: 2px 2px 1px black;
+    display: flex;
 }
-
+.topbar button{
+    background-color: transparent;
+    color:inherit;
+    width: 100%;
+    
+}
+.topbar li{
+    width:50%;
+}
+.topbar li:nth-child(2){
+    width:70%;
+}
 .topbar .logo{
     color:var(--text-theme);
     font-weight: bold;

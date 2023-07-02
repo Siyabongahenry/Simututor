@@ -1,8 +1,6 @@
 .page-inside-nav{
     position: relative;
     width: 100%;
-    padding-left: 2%;
-    padding-right:2%;
 }
 .page-inside-nav button{
     background-color: var(--bg-theme);
@@ -11,21 +9,20 @@
 }
 .page-inside-nav .links-container{
     position:absolute;
-    top:100%;
+    top:110%;
     width:100%;
     background-color:var(--bg-theme);
     color:white;
     z-index:1;
     left: 2%;
     width: 96%;
-    border: 1px solid var(--text-theme);
     overflow-x: hidden;
+    box-shadow: 2px 2px 1px silver,-2px 0px 1px silver;
 }
 .page-inside-nav .links-container li{
   line-height: 40px;
   height: 40px;
   padding-left: 2%;
-  border-bottom: 1px solid var(--text-theme);
 }
 .page-inside-nav .links-container li:hover{
     background-color: var(--text-theme);

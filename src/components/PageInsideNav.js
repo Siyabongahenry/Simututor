@@ -16,7 +16,7 @@ export default function PageInsideNav({
     
     return(
         <div className="nav-container page-inside-nav">
-            <button onClick={toddleHandler}>
+            <button onClick={toddleHandler} className="fw-bold">
                 Table of Content {toddle? <FaAngleUp/> : <FaAngleDown/>}
             </button>
             {

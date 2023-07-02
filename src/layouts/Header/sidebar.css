@@ -1,18 +1,17 @@
 .sidebar{
     position:absolute;
-    top:100%;
+    top:102%;
     left:0;
-    text-align: center;
+    text-align:left;
     width:100%;
     height: calc(100vh - var(--nav-height));
     overflow-y: scroll;
     overflow-x: hidden;
     transition:0.5s;
-    border-top: 0;
     background-color: var(--bg-theme);
 }
 .sidebar li{
-    border-bottom: 1px solid white;
+    padding-left: 10%;
 }
 .hide-sidebar{
     margin-left:-100%;

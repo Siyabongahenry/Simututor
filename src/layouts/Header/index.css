@@ -3,11 +3,11 @@ header{
     left:0;
     top:0;
     width:100%;
-    font-size: 1.25em;
-    box-shadow: 1px 1px 2px white;
+    font-size: 1.5em;
+    box-shadow: 1px 1px 2px var(--text-theme);
     color:white;
     height:var(--nav-height);
-    line-height: 50px;
+    line-height:var(--nav-height);
     z-index: 10;
     background-color: inherit;
 }

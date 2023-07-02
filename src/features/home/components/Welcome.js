@@ -3,7 +3,6 @@ import Chatbox from "./Chatbox";
 import { useEffect, useState } from "react";
 
 const messages = ["Hi.",
-     "Congratulations for finding out about this exciting website.",
      "We're providing free simulations, games and animations to accelerate your learning.",
      "Use the side menu to choose your subject of choice.",
      "Good luck!!!"

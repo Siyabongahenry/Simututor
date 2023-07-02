@@ -6,6 +6,7 @@ import MathematicsPage from "../pages/MathematicsPage";
 import PhysicsPage from "../pages/PhysicsPage";
 import ChemistryPage from "../pages/ChemistryPage";
 import AboutPage from "../pages/AboutPage";
+import UniApplicationPage from "../pages/UniApplicationPage";
 
 export default function PublicRoute()
 {
@@ -37,7 +38,11 @@ export default function PublicRoute()
         {
             path:"/about/*",
             element:<AboutPage/>
-        }
+        },
+        {
+            path:"/university/*",
+            element:<UniApplicationPage/>
+        },
 
     ];
     return(

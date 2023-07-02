@@ -3,21 +3,24 @@
 }
 .chatbox{
     position:relative;
-    background-color: var(--chatbox-color);
+    background-color:white;
     display: inline-block;
     max-width:80%;
-    padding:1em;
+    padding:2%;
+    font-size: 1.25em;
     text-align:start;
+    border-radius:10px;
+    border-top-left-radius:0;
 }
 
 .chatbox::before{
     content: "";
     position:absolute;
-    top:20px;
+    top:0;
     left:-20px;
     width:0;
     height:0;
-    border:10px solid var(--chatbox-color);
+    border:10px solid white;
     border-left-color: transparent;
     border-bottom-color: transparent;
 }
