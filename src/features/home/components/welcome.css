@@ -1,0 +1,20 @@
+.chatting-robot .eye{
+    fill:var(--text-theme);
+    animation: eye-anim 0.5s linear 28;
+}
+.chatting-robot .mouth{
+    stroke: black;
+    stroke-width:2px;
+    animation: robot-mouth-anim 0.5s linear 28;
+}
+@keyframes robot-mouth-anim {
+    to{
+        fill:var(--text-theme);
+    }
+}
+
+@keyframes eye-anim {
+    to{
+        fill:transparent;
+    }
+}

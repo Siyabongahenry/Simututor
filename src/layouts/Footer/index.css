@@ -1,0 +1,8 @@
+footer{
+    height:var(--footer-height);
+    line-height:30px;
+}
+footer p{
+    padding: 0;
+    margin: 0;
+}

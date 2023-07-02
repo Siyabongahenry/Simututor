@@ -1,0 +1,15 @@
+.topbar{
+    color:inherit;
+    display: flex;
+    background-color: var(--bg-theme);
+}
+
+.topbar li{
+    width:100%;
+    text-align:center;
+}
+
+.topbar .logo{
+    color:var(--text-theme);
+    font-weight: bold;
+}

@@ -1,0 +1,23 @@
+:root{
+    --chatbox-color: white;
+}
+.chatbox{
+    position:relative;
+    background-color: var(--chatbox-color);
+    display: inline-block;
+    max-width:80%;
+    padding:1em;
+    text-align:start;
+}
+
+.chatbox::before{
+    content: "";
+    position:absolute;
+    top:20px;
+    left:-20px;
+    width:0;
+    height:0;
+    border:10px solid var(--chatbox-color);
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+}
