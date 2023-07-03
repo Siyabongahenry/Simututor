@@ -1,0 +1,12 @@
+.link-container h2{
+    height:100px;
+    overflow: hidden;
+}
+.btn-link{
+    background-color:var(--text-theme);
+    color:var(--bg-theme);
+    padding:2%;
+    display: block;
+    border-radius: 5px;
+    text-decoration: none;
+}

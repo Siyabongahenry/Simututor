@@ -7,6 +7,7 @@ import PhysicsPage from "../pages/PhysicsPage";
 import ChemistryPage from "../pages/ChemistryPage";
 import AboutPage from "../pages/AboutPage";
 import UniApplicationPage from "../pages/UniApplicationPage";
+import CV from "../features/CV";
 
 export default function PublicRoute()
 {
@@ -40,8 +41,12 @@ export default function PublicRoute()
             element:<AboutPage/>
         },
         {
-            path:"/university/*",
+            path:"/university",
             element:<UniApplicationPage/>
+        },
+        {
+            path:"/cv/*",
+            element:<CV/>
         },
 
     ];

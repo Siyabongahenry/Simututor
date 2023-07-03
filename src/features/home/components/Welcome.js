@@ -34,7 +34,7 @@ export default function Welcome()
 
     return(
         <div className="text-center welcome-">
-            <h1 className="text-white p-2 sow" >Learn more with few words</h1>
+            <h1 className="text-white p-2 sow" >Do it the easy way.</h1>
             <svg className="chatting-robot" width="100" height="100">
                 <path d="M10 40 C10 10 90 10 90 40" stroke="white" strokeWidth="2" fill="transparent"/>
                 <circle className="eye"  cx="30" cy="40" r="10" stroke="black" strokeWidth="2" fill="white"/>

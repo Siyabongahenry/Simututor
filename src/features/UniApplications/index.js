@@ -45,7 +45,7 @@ export default function UniApplications()
     }
     return(
         <div className="m-2">
-            <h1 className="text-center text-theme"><FaUniversity/>&nbsp;<br/>South Africa Universities</h1>
+            <h1 className="text-center text-theme"><FaUniversity/>&nbsp;<br/>South African Universities</h1>
             <div className="bg-white p-2 text-center">
                 <p>
                     <b>Filter BY:</b>&nbsp;
