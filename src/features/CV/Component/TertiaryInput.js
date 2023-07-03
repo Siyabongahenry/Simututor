@@ -1,4 +1,4 @@
-import { FaUniversity } from "react-icons/fa"
+import { FaUniversity,FaPlus } from "react-icons/fa"
 import InputsContainer from "./InputsContainer"
 export default function TertiaryInputs()
 {
@@ -19,6 +19,9 @@ export default function TertiaryInputs()
             <div>
                 <label className="formLabel">To</label>
                 <input className="form-control"/>
+            </div>
+            <div className="text-center p-2">
+                <button className="btn btn-outline-primary bg-white"><FaPlus/>&nbsp;Add</button>
             </div>
         </InputsContainer>
     )

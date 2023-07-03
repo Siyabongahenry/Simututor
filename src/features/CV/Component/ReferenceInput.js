@@ -1,3 +1,4 @@
+import { FaPlus } from "react-icons/fa"
 import InputsContainer from "./InputsContainer"
 export default function ReferencesInput()
 {
@@ -18,6 +19,9 @@ export default function ReferencesInput()
             <div>
                 <label className="form-label">Contact Numbers</label>
                 <input className="form-control"/>
+            </div>
+            <div className="text-center p-2">
+                <button className="btn btn-outline-primary bg-white"><FaPlus/>&nbsp;Add</button>
             </div>
         </InputsContainer>
     )

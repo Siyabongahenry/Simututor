@@ -1,5 +1,6 @@
 import InputsContainer from "./InputsContainer";
 import { useState } from "react";
+import { FaPlus } from "react-icons/fa";
 export default function ExperienceInputs()
 {
     const[job,setJob] = useState({
@@ -38,7 +39,7 @@ export default function ExperienceInputs()
                 <input type="date" value={job.to} className="form-control"/>
             </div>
             <div className="text-center p-2">
-                <button className="btn btn-primary">Add More</button>
+                <button className="btn btn-outline-primary bg-white"><FaPlus/>&nbsp;Add</button>
             </div>
         </InputsContainer>
     )
