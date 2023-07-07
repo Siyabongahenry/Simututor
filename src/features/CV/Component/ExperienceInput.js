@@ -1,7 +1,9 @@
 import InputsContainer from "./InputsContainer";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
-export default function ExperienceInputs()
+import {v4 as uuidv4} from "uuid";
+
+export default function ExperienceInputs({experiences:_jobs,saveExperiences})
 {
     const[job,setJob] = useState({
         companyName:"",
@@ -10,6 +12,19 @@ export default function ExperienceInputs()
         top:""
     })
     const[jobs,setJobs] = useState([]);
+
+    const inputHandler = (e)=>{
+        setJob({
+            ...job,
+            [e.target.name]:e.target.value,
+            id:uuidv4()
+        })
+    }
+
+    const appendToJobs=()=>{
+        setJobs([...jobs,job]);
+    }
+
     return (
         <InputsContainer headerText="Work Experience">
             <div>
@@ -30,16 +45,16 @@ export default function ExperienceInputs()
             </div>
             <div>
                 <label className="form-label">Company Name</label>
-                <input type="text" value={job.companyName} className="form-control"/>
+                <input type="text" value={job.companyName} className="form-control" onClick={inputHandler}/>
                 <label className="form-label">Position</label>
-                <input type="text" value={job.position} className="form-control"/>
+                <input type="text" value={job.position} className="form-control" onClick={inputHandler}/>
                 <label className="form-label">From</label>
-                <input type="date" value={job.from} className="form-control"/>
+                <input type="date" value={job.from} className="form-control" onClick={inputHandler}/>
                 <label className="form-label">To</label>
-                <input type="date" value={job.to} className="form-control"/>
+                <input type="date" value={job.to} className="form-control" onClick={inputHandler}/>
             </div>
-            <div className="text-center p-2">
-                <button className="btn btn-outline-primary bg-white"><FaPlus/>&nbsp;Add</button>
+            <div className="p-2 text-center">
+                <button className="btn btn-outline-primary" onClick={saveExperiences}><FaPlus/> add</button>
             </div>
         </InputsContainer>
     )
