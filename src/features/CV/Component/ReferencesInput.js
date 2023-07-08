@@ -8,8 +8,8 @@ export default function ReferencesInput({references:_references,saveReferences})
     const[references,setReferences] = useState([..._references]);
     const[reference,setReference] = useState({
         id:122328,
-        company:"",
-        personNames:"",
+        companyName:"",
+        personName:"",
         personPosition:"",
         personContact:""
     });
@@ -22,9 +22,9 @@ export default function ReferencesInput({references:_references,saveReferences})
     const appendReference=()=>{
         setReferences([...references,reference]);
         setReference({
-            id:null,
-            company:"",
-            personNames:"",
+            id:"",
+            companyName:"",
+            personName:"",
             personPosition:"",
             personContact:""
         });
@@ -38,14 +38,14 @@ export default function ReferencesInput({references:_references,saveReferences})
         <InputsContainer headerText="References" savefunc={()=>saveReferences(references)}>      
             {
                 references.map(
-                    (ref,index)=>
-                    <div className="row" key={index}>
+                    (ref)=>
+                    <div className="row" key={ref.id}>
                         <div className="col-6"></div>
-                        <div className="col-6 text-center">
+                        <div className="col-6 text-end pr-4">
                             <FaTrash className="text-danger" onClick={()=>filterReferences(ref.id)}/>
                         </div>
-                        <div className="col-6">Company</div><div className="col-6">:&nbsp;{ref.company}</div>
-                        <div className="col-6">Person Names</div><div className="col-6">:&nbsp;{ref.personNames}</div>
+                        <div className="col-6">Company</div><div className="col-6">:&nbsp;{ref.companyName}</div>
+                        <div className="col-6">Person Names</div><div className="col-6">:&nbsp;{ref.personName}</div>
                         <div className="col-6">Person Position</div><div className="col-6">:&nbsp;{ref.personPosition}</div>
                         <div className="col-6">Person Contact</div><div className="col-6">:&nbsp;{ref.personContact}</div>
                     </div>
@@ -53,13 +53,13 @@ export default function ReferencesInput({references:_references,saveReferences})
             }
             <div>
                 <label className="form-label">Company Name</label>
-                <input className="form-control" value={reference.company} onChange={handleInput}/>
+                <input name="companyName" value={reference.companyName} onChange={handleInput} className="form-control" placeholder="Company Name"/>
                 <label className="form-label">Person Names</label>
-                <input className="form-control" value={reference.company} onChange={handleInput}/>
+                <input name="personName"  value={reference.personName} onChange={handleInput} className="form-control" placeholder="Person Name"/>
                 <label className="form-label">Person postion</label>
-                <input className="form-control" value={reference.personPosition} onChange={handleInput}/>
+                <input name="personPosition" value={reference.personPosition} onChange={handleInput} className="form-control" placeholder="Person Position"/>
                 <label className="form-label">Person Contact</label>
-                <input className="form-control" value={reference.personContact} onChange={handleInput}/>
+                <input name="personContact" value={reference.personContact} onChange={handleInput} className="form-control" placeholder="Person Contact"/>
             </div>
             <div className="p-2 text-center">
                 <button className="btn btn-outline-primary" onClick={appendReference}><FaPlus/> add</button>

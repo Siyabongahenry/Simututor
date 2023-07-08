@@ -9,9 +9,11 @@ export default function AddressInput({address:_address,saveAddress})
         town:"",
         postalCode:""
     });
+
     const handleInput =(e)=>{
         setAddress({...address,[e.target.name]:e.target.value})
     }
+    
     return(
         <InputsContainer icon={<FaAddressBook/>} headerText="Residential Address" savefunc={()=>{saveAddress(address)}}>          
             <CreatePropInput labelName="Surbub" name="suburb" value={address.surbub} onChange={handleInput} placeholder="Emzinoni Township" />

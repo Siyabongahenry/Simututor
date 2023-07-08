@@ -1,10 +1,10 @@
-import { FaEnvelope,FaPhone} from "react-icons/fa";
+import { FaEnvelope,FaHome,FaPhone} from "react-icons/fa";
 export default function CVHeader({names,contacts={},address={}})
 {
     const headerStyles={
         width:"60%",
         float:"left",
-        textAlign:"Center",
+        textAlign:"Center"
     }
     const addressStyles={
         border:"1px solid balck",
@@ -25,7 +25,8 @@ export default function CVHeader({names,contacts={},address={}})
                 </address>
                 <div>
                     <p style={{padding:"0",margin:"0"}}><FaEnvelope/>&nbsp;{contacts.email}</p>
-                    <p style={{padding:"0",margin:"0"}}><FaPhone/>&nbsp;{contacts.cellNo}</p>
+                    <p style={{padding:"0",margin:"0"}}><FaPhone/>&nbsp;{contacts.mobileNo}</p>
+                    <p style={{padding:"0",margin:"0"}}><FaHome/>&nbsp;{contacts.home}</p>
                 </div>
             </div>
         </div>

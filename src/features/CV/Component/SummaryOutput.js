@@ -1,5 +1,5 @@
 import CVSection from "./CVSection";
-export default function SummarySection({summary="I am a hard worker."})
+export default function SummaryOutput({summary="I am a hard worker."})
 {
     return(
         <CVSection name="Summary">

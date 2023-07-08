@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputsContainer from "./InputsContainer";
 import {FaUserCircle } from "react-icons/fa";
-export default function PersonalInput({person,savePersonalDetails:saveChanges})
+export default function PersonalInfoInput({person,savePersonalInfo})
 {
     const[personalInfo,setPersonalInfo] = useState({
       firstName:"",
@@ -30,16 +30,8 @@ export default function PersonalInput({person,savePersonalDetails:saveChanges})
     const handleInput=(e)=>{
       setPersonalInfo({...personalInfo,[e.target.name]:e.target.value});
     }
-
-    const handleContactInput =(e)=>{
-       setPersonalInfo({...personalInfo,contacts:{...personalInfo.contacts, [e.target.name]:e.target.value}});
-    }
-
-    const handleAddressInput =(e)=>{
-      setPersonalInfo({...personalInfo,address:{...personalInfo.address, [e.target.name]:e.target.value}});
-    }
     return(
-        <InputsContainer icon={<FaUserCircle/>} headerText="Personal Information" savefunc={()=>{saveChanges(personalInfo)}}>
+        <InputsContainer icon={<FaUserCircle/>} headerText="Personal Information" savefunc={()=>{savePersonalInfo(personalInfo)}}>
             <div>
                <label className="form-label">First Name</label>
                <input name="firstName" value={personalInfo.firstName} onChange={handleInput} className="form-control" placeholder="Example: Siyabonga"/>
@@ -57,8 +49,16 @@ export default function PersonalInput({person,savePersonalDetails:saveChanges})
                <input name="identity"  value={personalInfo.identity} onChange={handleInput}  className="form-control" placeholder="ID Number"/>
             </div>
             <div>
+               <label className="form-label">Date of Birth</label>
+               <input name="dateOfBirth" type="date"  value={personalInfo.dateOfBirth} onChange={handleInput}  className="form-control"/>
+            </div>
+            <div>
                <label className="form-label">Tax Number</label>
                <input name="taxNumber" value={personalInfo.taxNumber} onChange={handleInput}  className="form-control" placeholder="SARS Tax Number"/>
+            </div>
+            <div>
+               <label className="form-label">Health Status</label>
+               <input name="healthStatus"  value={personalInfo.healthStatus} onChange={handleInput}   className="form-control" placeholder="Example: Excellent"/>
             </div>
             <div>
                <label className="form-label">Marital Status</label>
@@ -68,7 +68,6 @@ export default function PersonalInput({person,savePersonalDetails:saveChanges})
                <label className="form-label">Criminal Record</label>
                <input name="criminalRecord"  value={personalInfo.criminalRecord} onChange={handleInput}   className="form-control" placeholder="Example: None"/>
             </div>
-
         </InputsContainer>
     )
 }

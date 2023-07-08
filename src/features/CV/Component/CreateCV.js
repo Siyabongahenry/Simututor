@@ -1,6 +1,6 @@
 import ReactToPrint from "react-to-print";
 import { useRef } from "react";
-import CVTemplate from "./CVTemplate";
+import Finaloutput from "./OutputTemplate";
 import { FaPrint } from "react-icons/fa";
 export default function CreateCV({cvOwnerDetails})
 {
@@ -15,7 +15,7 @@ export default function CreateCV({cvOwnerDetails})
                 </ReactToPrint>
             </div>
             <div ref={(el)=>(cvTemplateRef = el)}> 
-                <CVTemplate cvOwnerDetails={cvOwnerDetails}/>
+                <Finaloutput cvOwnerDetails={cvOwnerDetails}/>
             </div>
         </div>
     )

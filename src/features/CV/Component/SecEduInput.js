@@ -1,28 +1,32 @@
 import { useState } from "react";
 import InputsContainer from "./InputsContainer";
 import { FaSchool } from "react-icons/fa";
-export default function HighSchoolInput()
+export default function SecEduInput({secEdu:_secEdu,saveSecEdu})
 {
-    const[school,setSchool] = useState({
-        name:"",
+    const[secEdu,setSecEdu] = useState({
+        schoolName:"",
+        highestGrade:"",
         year:"",
-        grade:""
-    })
-    const[schools,setSchools] =useState([]);
+        
+    });
 
+    const handleInput=(e)=>{
+        setSecEdu({...secEdu,[e.target.name]:e.target.value});
+    }
+    
     return(
-        <InputsContainer icon={<FaSchool/>} headerText="High School Information">
+        <InputsContainer icon={<FaSchool/>} headerText="High School Information" savefunc={()=>{saveSecEdu(secEdu)}}>
             <div className="mt-2">
                 <label className="form-label">School Name</label>
-                <input name="name" value={school.name} className="form-control" placeholder="example: Bethal Secondary School"/>
+                <input name="schoolName" value={secEdu.name} onChange={handleInput} className="form-control" placeholder="example: Bethal Secondary School"/>
             </div>
             <div  className="mt-2">
                 <label className="form-label">Year of Completion</label>
-                <input type="date" name="name" value={school.name} className="form-control"/>
+                <input  name="year" type="date"  value={secEdu.year} onChange={handleInput} className="form-control"/>
             </div>
             <div  className="mt-2">
                 <label className="form-label">Highest Grade:</label>&nbsp;
-                <select value={12}>
+                <select name="highestGrade" value={secEdu.grade}  onChange={handleInput} className="form-select text-center">
                     {
                         [1,2,3,4,5,6,7,8,9,10,11,12].map(
                             grade=><option key={grade} value={grade}>{grade}</option>
