@@ -11,24 +11,6 @@ export default function Sidebar({displayClass,hide=f=>f})
             icon:<FaHome/>
         },
         {
-            name:"Mathematics",
-            to:"/mathematics",
-            icon:<FaCalculator/>
-        },
-        ,
-        {
-            name:"Physics",
-            to:"/physics",
-            icon:<FaRocket/>
-        }
-        ,
-        {
-            name:"Chemistry",
-            to:"/chemistry",
-            icon:<FaFlask/>,
-        }
-        ,
-        {
             name:"University Applications",
             to:"/university",
             icon:<FaUniversity/>

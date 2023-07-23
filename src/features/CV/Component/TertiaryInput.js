@@ -18,7 +18,7 @@ export default function TertiaryInput({tertiaryEdu:_tertiaryEdu,saveTertiaryEdu:
     }
 
     const removeTertiaryEdu=(id)=>{
-        console.log(id);
+    
         setTertiaryEdus(tertiaryEdus.filter(edu => edu.id  !== id));
     }
     return(

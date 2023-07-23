@@ -17,30 +17,7 @@ export default function PublicRoute()
             element:<HomePage/>
         },
         {
-            path:"/login/*",
-            element:<LoginPage/>
-        },
-        {
-            path:"/signup/*",
-            element:<SignupPage/>
-        },
-        {
-            path:"/mathematics/*",
-            element:<MathematicsPage/>
-        },
-        {
-            path:"/physics/*",
-            element:<PhysicsPage/>
-        },
-        {
-            path:"/chemistry/*",
-            element:<ChemistryPage/>
-        },
-        {
-            path:"/about/*",
-            element:<AboutPage/>
-        },
-        {
+    
             path:"/university",
             element:<UniApplicationPage/>
         },

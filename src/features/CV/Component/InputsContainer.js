@@ -7,7 +7,7 @@ export default function InputsContainer({icon="",headerText,savefunc=f=>f,childr
         setShowChildred(false);
     }
     return(
-        <section className="p-2 border m-2 rounded text-white">
+        <section className="p-2 border m-2 rounded text-white" style={{cursor:"pointer"}}>
             <h2 className="text-center" onClick={()=>{setShowChildred(!showChildred)}}>{icon}&nbsp;{headerText}&nbsp;{showChildred?<FaAngleUp/>:<FaAngleDown/>}</h2>
             {
                 showChildred &&

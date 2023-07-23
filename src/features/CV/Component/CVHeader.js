@@ -4,13 +4,17 @@ export default function CVHeader({names,contacts={},address={}})
     const headerStyles={
         width:"60%",
         float:"left",
-        textAlign:"Center"
+        textAlign:"Center",
+        color:"white"
     }
     const addressStyles={
-        border:"1px solid balck",
+        border:"1px solid black",
         padding:"0.5em",
         float:"left",
-        width:"40%"
+        width:"40%",
+        backgroundColor:"white",
+        color:"black"
+       
     }
     return(
         <div style={{overflow:"auto"}}>
@@ -18,8 +22,8 @@ export default function CVHeader({names,contacts={},address={}})
                 <h1>Curriculum Vitae <br/>of<br/>{names}</h1>
             </div>
             <div style={addressStyles}>
-                <address>
-                    <p style={{padding:"0",margin:"0"}}>{address.suburb}</p>
+                <address  style={{borderBottom:"1px solid black"}}>
+                    <p style={{padding:"0",margin:"0"}}>{address.surbub}</p>
                     <p style={{padding:"0",margin:"0"}}>{address.town}</p>
                     <p style={{padding:"0",margin:"0"}}>{address.postalCode}</p>
                 </address>

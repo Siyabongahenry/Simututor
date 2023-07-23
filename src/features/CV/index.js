@@ -37,7 +37,7 @@ export default function Index()
                 average:""
             },
             tertiaryEdu:[],
-            experience:[] ,
+            experiences:[] ,
             references:[],
             summary:"I am a hardworker"
         }

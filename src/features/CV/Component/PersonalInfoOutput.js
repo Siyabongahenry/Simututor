@@ -20,8 +20,7 @@ export default function PersonalInfoOutput({personalInfo={}}){
             {
               personalInfo.driversLicence &&
               <PropLabelAndValue labelName="Drivers Licence" value={personalInfo.driversLicence}/>
-            }       
-            <hr/>
+            }      
         </CVSection>
     )
 }

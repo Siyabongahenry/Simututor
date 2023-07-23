@@ -3,9 +3,7 @@ import Chatbox from "./Chatbox";
 import { useEffect, useState } from "react";
 
 const messages = ["Hi.",
-     "We're providing free simulations, games and animations to accelerate your learning.",
-     "Use the side menu to choose your subject of choice.",
-     "Good luck!!!"
+     "Looking for a fast way of creating your CV or Applying, you're at the rigt place.",
     ];
 
 let isFirstRender = true;

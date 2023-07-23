@@ -1,6 +1,6 @@
 export default function({name,children}){
     const headStyle ={
-        backgroundColor:"#282c34",
+        backgroundColor:"#015289",
         color:"White",
         padding:"0.2em"
     }

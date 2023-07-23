@@ -20,13 +20,11 @@ export default function EducInfoOutput({secEdu={},tertiaryEdu=[]}){
                                 <PropLabelAndValue labelName="Istitution Name" value={edu.instituteName}/>
                                 <PropLabelAndValue labelName="Course" value={edu.course}/>
                                 <PropLabelAndValue labelName="Year of Completion" value={edu.endDate}/>
-                                <hr/>
                             </div>
                         )
                     }
                 </CVInnerSection>
             }
-            <hr/>
         </CVSection>
     )
 }

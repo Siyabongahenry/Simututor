@@ -9,7 +9,8 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
         companyName:"",
         position:"",
         startDate:"",
-        endDate:""
+        endDate:"",
+        reason:"Termination of Contract"
     });
 
     const[jobs,setJobs] = useState([]);
@@ -46,6 +47,8 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
                             <div className="col-6">{j.startDate}</div>
                             <div className="col-6">End Date</div>
                             <div className="col-6">{j.endDate}</div>
+                            <div className="col-6">Reason of Leaving</div>
+                            <div className="col-6">{j.reason}</div>
                         </div>
                     )
                 }
@@ -59,6 +62,8 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
                 <input name="startDate" type="date" value={job.startDate} className="form-control" onChange={inputHandler}/>
                 <label className="form-label">End Date</label>
                 <input name="endDate" type="date" value={job.endDate} className="form-control" onChange={inputHandler}/>
+                <label className="form-label">Reason of Leaving</label>
+                <input name="reason" type="text" value={job.reason} className="form-control" onChange={inputHandler}/>
             </div>
             <div className="p-2 text-center">
                 <button className="btn btn-outline-primary" onClick={appendToJobs}><FaPlus/> add</button>
