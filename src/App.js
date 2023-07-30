@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import{BrowserRouter as Router} from "react-router-dom";
+import{BrowserRouter as Router, HashRouter} from "react-router-dom";
 import RoutesConfig from './routes';
 import Head from './layouts/Header';
 import Main from './layouts/Main';
@@ -15,13 +15,13 @@ function App() {
 
   return (
     <AuthContext.Provider value={user}>
-      <Router> 
+      <HashRouter> 
         <Head/> 
         <Main>
             <RoutesConfig/>
         </Main>  
         <Footer/>
-      </Router>
+      </HashRouter>
     </AuthContext.Provider>
   );
 }

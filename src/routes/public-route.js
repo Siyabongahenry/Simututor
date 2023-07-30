@@ -31,6 +31,10 @@ export default function PublicRoute()
             path:"/letter/*",
             element:<Letter/>
         },
+        {
+            path:"/about/*",
+            element:<AboutPage/>
+        }
 
     ];
     return(
