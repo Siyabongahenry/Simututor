@@ -1,7 +1,7 @@
 import { useState } from "react"
 import University from "./Components/University";
 import { universitiesData } from "./Data/universities-data";
-import {FaUniversity} from "react-icons/fa"
+import {FaUniversity,FaInfoCircle} from "react-icons/fa"
 export default function UniApplications()
 {
     const [universities,setUniversities] = useState([...universitiesData]);
@@ -45,6 +45,11 @@ export default function UniApplications()
     }
     return(
         <div className="m-2">
+            <div className="alert alert-danger text-center">
+                <FaInfoCircle/>
+                This page is still under contruction thus some of the links might not work,
+                 and the information could be incorrect.
+            </div>
             <h1 className="text-center text-theme"><FaUniversity/>&nbsp;<br/>South African Universities</h1>
             <div className="bg-white p-2 text-center">
                 <p>
