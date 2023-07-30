@@ -47,7 +47,7 @@ export default function UniApplications()
         <div className="m-2">
             <div className="alert alert-danger text-center">
                 <FaInfoCircle/>
-                This page is still under contruction thus some of the links might not work,
+                This page is still under construction thus some of the links might not work as expected,
                  and the information could be incorrect.
             </div>
             <h1 className="text-center text-theme"><FaUniversity/>&nbsp;<br/>South African Universities</h1>
