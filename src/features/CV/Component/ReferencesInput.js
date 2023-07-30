@@ -7,7 +7,7 @@ export default function ReferencesInput({references:_references,saveReferences})
 {
     const[references,setReferences] = useState([..._references]);
     const[reference,setReference] = useState({
-        id:122328,
+        id:"",
         companyName:"",
         personName:"",
         personPosition:"",
@@ -16,12 +16,20 @@ export default function ReferencesInput({references:_references,saveReferences})
     const handleInput =(e)=>{
         setReference({...reference,
             [e.target.name]:e.target.value,
-            id:uuidv4()});
+            id:reference.id===""?uuidv4():reference.id
+        });
     }
 
     const appendReference=()=>{
+        
+        if(!(reference.id && reference.companyName && reference.personContact)) return;
+
+        if(references.some(r=>r.id === reference.id)) return;
+
         setReferences([...references,reference]);
+
         setReference({
+            ...reference,
             id:"",
             companyName:"",
             personName:"",
@@ -35,11 +43,11 @@ export default function ReferencesInput({references:_references,saveReferences})
     }
 
     return(
-        <InputsContainer headerText="References" savefunc={()=>saveReferences(references)}>      
+        <InputsContainer headerText="References" savefunc={()=>{saveReferences(references)}}>      
             {
                 references.map(
                     (ref)=>
-                    <div className="row" key={ref.id}>
+                    <div className="row mb-2" key={ref.id}>
                         <div className="col-6"></div>
                         <div className="col-6 text-end pr-4">
                             <FaTrash className="text-danger" onClick={()=>filterReferences(ref.id)}/>
@@ -51,7 +59,8 @@ export default function ReferencesInput({references:_references,saveReferences})
                     </div>
                 )
             }
-            <div>
+            <hr/>
+            <div className="mt-2">
                 <label className="form-label">Company Name</label>
                 <input name="companyName" value={reference.companyName} onChange={handleInput} className="form-control" placeholder="Company Name"/>
                 <label className="form-label">Person Names</label>
@@ -61,9 +70,12 @@ export default function ReferencesInput({references:_references,saveReferences})
                 <label className="form-label">Person Contact</label>
                 <input name="personContact" value={reference.personContact} onChange={handleInput} className="form-control" placeholder="Person Contact"/>
             </div>
-            <div className="p-2 text-center">
-                <button className="btn btn-outline-primary" onClick={appendReference}><FaPlus/> add</button>
+            <div className="text-danger text-center">
+               Add your reference to the list before saving.
             </div>
+            <div className="p-2 text-center">
+                <button className="btn btn-outline-primary" onClick={appendReference}><FaPlus/> Add To List</button>
+            </div>     
         </InputsContainer>
     )
 }

@@ -1,12 +1,13 @@
 import CVSection from "./CVSection";
 import PropLabelAndValue from "./PropLabelAndValue";
 export default function ExperiencesOutput({experiences})
-{
+{   
+
     return(
         <CVSection name="Work Experience">
              {
                 experiences.map((exp,index)=>
-                    <div id={exp.id}>
+                    <div key={exp.id}>
                         <PropLabelAndValue labelName="Company Name" value={exp.companyName}/>
                         <PropLabelAndValue labelName="Position" value={exp.position}/>
                         <PropLabelAndValue labelName="Start Date" value={exp.startDate}/>

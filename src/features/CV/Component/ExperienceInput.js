@@ -6,10 +6,11 @@ import {v4 as uuidv4} from "uuid";
 export default function ExperienceInput({experiences:_jobs,saveExperiences})
 {
     const[job,setJob] = useState({
+        id:"",
         companyName:"",
         position:"",
-        startDate:"",
-        endDate:"",
+        startDate:"2020-05-23",
+        endDate:"2023-07-24",
         reason:"Termination of Contract"
     });
 
@@ -19,13 +20,25 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
         setJob({
             ...job,
             [e.target.name]:e.target.value,
-            id:uuidv4()
-        })
+            id:job.id===""?uuidv4():job.id
+        });
     }
 
     const appendToJobs=()=>{
-        if(jobs.some(j=>j.id===job.id) || job.companyName==="") return;
+        if(!(job.id && job.companyName && job.position)) return;
+
+        if(jobs.some(r=>r.id === job.id)) return;
+       
         setJobs([...jobs,job]);
+
+        setJob({
+            ...job,
+            id:"",
+            companyName:"",
+            position:"",
+            startDate:"2020-05-23",
+            endDate:"2023-07-24"
+        });
     }
 
     const removeJob=(id)=>{
@@ -33,12 +46,12 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
     }
 
     return (
-        <InputsContainer headerText="Work Experience" savefunc={saveExperiences}>
+        <InputsContainer headerText="Work Experience" savefunc={()=>{saveExperiences(jobs)}}>
             <div>
                 {
                     jobs.map((j)=>
-                        <div key={j.id} className="row border mt-2">
-                            <div className="col-12"><FaTrash onClick={()=>{removeJob(j.id)}} className="text-danger"/></div>
+                        <div key={j.id} className="row mt-2">
+                            <div className="col-12 text-end"><FaTrash onClick={()=>{removeJob(j.id)}} className="text-danger"/></div>
                             <div className="col-6">Company Name</div>
                             <div className="col-6">{j.companyName}</div>
                             <div className="col-6">Position</div>
@@ -53,7 +66,8 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
                     )
                 }
             </div>
-            <div>
+            <hr/>
+            <div className="mt-2">
                 <label className="form-label">Company Name</label>
                 <input name="companyName" type="text" value={job.companyName} className="form-control" onChange={inputHandler}/>
                 <label className="form-label">Position</label>
@@ -66,7 +80,10 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
                 <input name="reason" type="text" value={job.reason} className="form-control" onChange={inputHandler}/>
             </div>
             <div className="p-2 text-center">
-                <button className="btn btn-outline-primary" onClick={appendToJobs}><FaPlus/> add</button>
+                <p className="text-danger">
+                    Add your experience to the list before saving.
+                </p>
+                <button className="btn btn-outline-primary" onClick={appendToJobs}><FaPlus/> Add To List</button>
             </div>
         </InputsContainer>
     )

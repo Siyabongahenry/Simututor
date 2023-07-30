@@ -30,7 +30,7 @@ export default function CVHeader({names,contacts={},address={}})
                 <div>
                     <p style={{padding:"0",margin:"0"}}><FaEnvelope/>&nbsp;{contacts.email}</p>
                     <p style={{padding:"0",margin:"0"}}><FaPhone/>&nbsp;{contacts.mobileNo}</p>
-                    <p style={{padding:"0",margin:"0"}}><FaHome/>&nbsp;{contacts.home}</p>
+                    {contacts.home && <p style={{padding:"0",margin:"0"}}><FaHome/>&nbsp;{contacts.home}</p>}
                 </div>
             </div>
         </div>

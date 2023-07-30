@@ -23,6 +23,12 @@ export default function Sidebar({displayClass,hide=f=>f})
         }
         ,
         {
+            name:"Create My Formal Letter",
+            to:"/letter",
+            icon:<FaFile/>
+        }
+        ,
+        {
             name:"About",
             to:"/about",
             icon:<FaInfoCircle className="text-info"/>

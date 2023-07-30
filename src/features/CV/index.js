@@ -14,7 +14,7 @@ export default function Index()
                 citizenship:"South African",
                 taxNumber:"",
                 healthStatus:"Excellent",
-                criminalRecord:"None",
+                criminalRecord:"",
                 maritalStatus:"Single",
                 driversLicense:"",
                 computerLiteracy:""
@@ -39,7 +39,7 @@ export default function Index()
             tertiaryEdu:[],
             experiences:[] ,
             references:[],
-            summary:"I am a hardworker"
+            summary:""
         }
     );
 
@@ -49,7 +49,7 @@ export default function Index()
         tertiaryEdu:saveTertiaryEdu,
         contacts:saveContacts,
         address:saveAddress,
-        experience:saveExperience,
+        experiences:saveExperiences,
         references:saveReferences,
         summary:saveSummary,
     }
@@ -72,8 +72,8 @@ export default function Index()
         setCVOwnerDetails({...cvOwnerDetails,secEdu});
     }
 
-    function saveExperience(experience=[]){
-        setCVOwnerDetails({...cvOwnerDetails,experience});
+    function saveExperiences(experiences=[]){
+        setCVOwnerDetails({...cvOwnerDetails,experiences});
     }
     function saveReferences(references=[]){
         setCVOwnerDetails({...cvOwnerDetails,references});

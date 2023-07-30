@@ -1,5 +1,5 @@
 import { useState } from "react"
-import{FaAngleDown,FaAngleUp} from "react-icons/fa"
+import{FaAngleDown,FaAngleUp, FaInfoCircle} from "react-icons/fa"
 export default function InputsContainer({icon="",headerText,savefunc=f=>f,children}){
     const[showChildred,setShowChildred] = useState(false);
     const handleSaveChanges=()=>{
@@ -13,7 +13,11 @@ export default function InputsContainer({icon="",headerText,savefunc=f=>f,childr
                 showChildred &&
                 <>
                     {children}
-                    <div className="p-2 text-center">
+                    <div className="text-info text-center">
+                        <FaInfoCircle/> Don't forget to save your changes, otherwise you won't see them
+                        on your CV.
+                    </div>
+                    <div className="p-2 text-center">        
                         <button className="btn btn-primary" onClick={handleSaveChanges}>Save Changes</button>
                     </div>
                 </>

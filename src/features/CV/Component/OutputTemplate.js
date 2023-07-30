@@ -5,23 +5,15 @@ import SummaryOutput from "./SummaryOutput";
 import ExperiencesOutput from "./ExperiencesOutput";
 import ReferencesOutput from "./ReferencesOutput";
 
-export default function OutputTemplate({cvOwnerDetails})
+
+export default function OutputTemplate({cvOwnerDetails,styles})
 {
-    const templateStyles = {
-        backgroundColor:"#015289",
-        color:"Black",
-        margin:"auto",
-        width:"210mm",
-        height:"297mm",
-        padding:"5mm",
-        fontSize:"11pt"
-    }
 
     const{contacts,experiences,address,personalInfo,secEdu,tertiaryEdu,references,summary} = cvOwnerDetails;
 
     return(
-        <div>
-            <div style={templateStyles}>           
+        <>
+            <div style={styles}>           
                 <CVHeader names={personalInfo.firstName+" "+personalInfo.lastName} 
                     address={address} 
                     contacts={contacts}/>
@@ -30,14 +22,16 @@ export default function OutputTemplate({cvOwnerDetails})
                     <EducInfoOutput secEdu={secEdu} tertiaryEdu = {tertiaryEdu}/>
                 </div>
             </div>
-            <div className="p-2"></div>
-            <div style={templateStyles}>
-                <div style={{backgroundColor:"white",padding:"2%"}}>
-                    <ExperiencesOutput experiences={experiences}/>
-                    <ReferencesOutput references={references}/>
-                    <SummaryOutput summary={summary}/>
+            {
+                (experiences.length > 0 || references.length > 0 || summary) &&
+                <div style={styles}> 
+                    <div style={{backgroundColor:"white",padding:"2%"}}>
+                        {experiences.length > 0 && <ExperiencesOutput experiences={experiences}/>}
+                        {references.length > 0 && <ReferencesOutput references={references}/>}
+                        {summary && <SummaryOutput summary={summary}/>}
+                    </div>
                 </div>
-            </div>
-        </div>
+            }
+        </>
     )
 }

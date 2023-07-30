@@ -16,7 +16,7 @@ export default function InputTemplate({cvOwnerDetails,saveChanges})
             <AddressInput address={cvOwnerDetails.address} saveAddress={saveChanges.address}/>
             <SecEduInput secEdu={cvOwnerDetails.secEdu} saveSecEdu={saveChanges.secEdu}/>
             <TertiaryInput tertiaryEdu={cvOwnerDetails.tertiaryEdu} saveTertiaryEdu={saveChanges.tertiaryEdu}/>
-            <ExperienceInput experience={cvOwnerDetails.experience} saveExperience={saveChanges.experience}/>
+            <ExperienceInput experiences={cvOwnerDetails.experiences} saveExperiences={saveChanges.experiences}/>
             <ReferencesInput references={cvOwnerDetails.references} saveReferences={saveChanges.references}/>
             <SummaryInput summary={cvOwnerDetails.summary} saveSummary={saveChanges.summary}/>
         </div>

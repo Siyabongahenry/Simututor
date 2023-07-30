@@ -8,6 +8,7 @@ import ChemistryPage from "../pages/ChemistryPage";
 import AboutPage from "../pages/AboutPage";
 import UniApplicationPage from "../pages/UniApplicationPage";
 import CV from "../features/CV";
+import Letter from "../features/Letter";
 
 export default function PublicRoute()
 {
@@ -24,6 +25,11 @@ export default function PublicRoute()
         {
             path:"/cv/*",
             element:<CV/>
+        },
+        ,
+        {
+            path:"/letter/*",
+            element:<Letter/>
         },
 
     ];
