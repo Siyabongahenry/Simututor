@@ -1,5 +1,5 @@
 import InputsContainer from "./InputsContainer";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import {v4 as uuidv4} from "uuid";
 
@@ -15,6 +15,13 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
     });
 
     const[jobs,setJobs] = useState([]);
+
+    useEffect(()=>{
+        const addJobs=()=>{
+            setJobs([..._jobs]);
+        }
+        addJobs();
+    },[_jobs]);
 
     const inputHandler = (e)=>{
         setJob({

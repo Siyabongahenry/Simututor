@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import InputsContainer from "./InputsContainer";
 import {FaUserCircle } from "react-icons/fa";
-export default function PersonalInfoInput({person,savePersonalInfo})
+export default function PersonalInfoInput({personalInfo:_personalInfo,savePersonalInfo})
 {
     const[personalInfo,setPersonalInfo] = useState({
       firstName:"",
@@ -27,6 +27,17 @@ export default function PersonalInfoInput({person,savePersonalInfo})
       driversLicense:"",
       computerLiteracy:""
     });
+
+    useEffect(()=>{
+      const addPersonalInfo=()=>{
+         if(!_personalInfo) return;
+         setPersonalInfo({..._personalInfo});
+      }
+
+      addPersonalInfo();
+
+    },[_personalInfo]);
+
     const handleInput=(e)=>{
       setPersonalInfo({...personalInfo,[e.target.name]:e.target.value});
     }

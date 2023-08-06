@@ -1,7 +1,7 @@
 import ReactToPrint from "react-to-print";
 import { useRef } from "react";
 import OutputTemplate from "./OutputTemplate";
-import { FaPrint } from "react-icons/fa";
+import { FaInfoCircle, FaPrint } from "react-icons/fa";
 import { useState } from "react";
 export default function CreateCV({cvOwnerDetails})
 {
@@ -28,6 +28,9 @@ export default function CreateCV({cvOwnerDetails})
     return(
         <div>
             <div className="p-2 text-center">
+                <div className="alert alert-info">
+                    <FaInfoCircle/> By using the buttom below you'll be able to save or download your CV.
+                </div>
                 <ReactToPrint 
                     trigger={()=><button className="btn btn-primary"><FaPrint/>&nbsp;Print Your CV</button>}
                     content={()=>cvTemplateRef}>

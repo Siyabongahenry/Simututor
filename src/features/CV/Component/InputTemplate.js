@@ -11,7 +11,7 @@ export default function InputTemplate({cvOwnerDetails,saveChanges})
 {    
     return(
         <div>
-            <PersonalInfoInput person={cvOwnerDetails.personal} savePersonalInfo={saveChanges.personalInfo}/>
+            <PersonalInfoInput personalInfo={cvOwnerDetails.personal} savePersonalInfo={saveChanges.personalInfo}/>
             <ContactsInput contacts={cvOwnerDetails.contacts} saveContacts={saveChanges.contacts}/>
             <AddressInput address={cvOwnerDetails.address} saveAddress={saveChanges.address}/>
             <SecEduInput secEdu={cvOwnerDetails.secEdu} saveSecEdu={saveChanges.secEdu}/>

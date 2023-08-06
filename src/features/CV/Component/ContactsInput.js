@@ -1,17 +1,24 @@
-import{useState} from "react";
+import{useEffect, useState} from "react";
 import InputsContainer from "./InputsContainer";
 import { FaPhone } from "react-icons/fa";
 export default function ContactsInput({contacts:_contacts,saveContacts})
 {
-    const[contacts,setContact] = useState({
+    const[contacts,setContacts] = useState({
         mobileNo:"",
         alternative:"",
         email:"",
         home:""
     });
 
+    useEffect(()=>{
+        const addContacts=()=>{
+            setContacts({..._contacts});
+        }
+        addContacts();
+    },[_contacts]);
+
     const handleInput =(e)=>{
-        setContact({...contacts,[e.target.name]:e.target.value});
+        setContacts({...contacts,[e.target.name]:e.target.value});
     }
 
     return(

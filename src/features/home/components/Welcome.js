@@ -2,8 +2,8 @@ import "./welcome.css";
 import Chatbox from "./Chatbox";
 import { useEffect, useState } from "react";
 
-const messages = ["Hi.",
-     "Looking for a fast way of creating your CV or Applying, you're at the rigt place.",
+const messages = ["Hi. I hope you're doing well.",
+     "Looking for a quick and easy way to create your CV, welcome you're at the right place.",
     ];
 
 let isFirstRender = true;

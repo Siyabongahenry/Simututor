@@ -9,31 +9,91 @@ import AboutPage from "../pages/AboutPage";
 import UniApplicationPage from "../pages/UniApplicationPage";
 import CV from "../features/CV";
 import Letter from "../features/Letter";
+import PhotoShoot from "../features/PhotoShoot";
 
 export default function PublicRoute()
 {
     const routes =[
         {
             path:"/",
-            element:<HomePage/>
-        },
+            element:<HomePage/>,
+            childrens:[]
+        }
+        ,
         {
     
             path:"/university",
-            element:<UniApplicationPage/>
-        },
+            element:<UniApplicationPage/>,
+            childrens:[]
+        }
+        ,
         {
             path:"/cv/*",
-            element:<CV/>
-        },
+            element:<CV/>,
+            childrens:[]
+        }
         ,
         {
             path:"/letter/*",
-            element:<Letter/>
-        },
+            element:<Letter/>,
+            childrens:[]
+        }
+        ,
+        {
+            path:"/photoshoot",
+            element:<PhotoShoot/>,
+            childrens:[]
+        }
+        ,
+        {
+            path:"/mathematics/*",
+            element:<MathematicsPage/>,
+            childrens:[
+                {
+                    path:"/functions",
+                    element:""
+                }
+            ]
+        }
+        ,
+        {
+            path:"/physics/*",
+            element:<PhysicsPage/>,
+            childrens:[
+                {
+                    path:"/Compton Effects",
+                    element:""
+                }
+            ]
+        }
+        ,
+        {
+            path:"/chemistry/*",
+            element:<ChemistryPage/>,
+            childrens:[
+                {
+                    path:"/Compton Effects",
+                    element:""
+                }
+            ]
+        }
+        ,
+        {
+            path:"/login",
+            element:<LoginPage/>,
+            childrens:[]
+        }
+        ,
+        {
+            path:"/login",
+            element:<LoginPage/>,
+            childrens:[]
+        }
+        ,
         {
             path:"/about/*",
-            element:<AboutPage/>
+            element:<AboutPage/>,
+            childrens:[]
         }
 
     ];
