@@ -14,7 +14,7 @@ const BookingForm = ({item,closeForm})=>{
     });
 
     return(
-        <section className="booking-form bg-theme text-theme">
+        <section className="booking-form bg-white">
             <div className="container p-2 border">
                 <p className="alert alert-warning text-center">
                     This page is currently under costruction

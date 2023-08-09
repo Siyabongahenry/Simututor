@@ -5,15 +5,6 @@ export default function NavLinks(){
     return(
         <div className="row">
             <div className="col-12 col-md-6">
-                <section className="border m-2 text-center p-2 shadow link-container">
-                    <h2 className="text-theme">
-                        <FaUniversity/><br/>
-                        SA Universities Application
-                    </h2>
-                    <Link className="btn-link" to="/university">View and Apply</Link>
-                </section>
-            </div>
-            <div className="col-12 col-md-6">
                 <section className="border m-2 text-center p-2 link-container">
                     <h2 className="text-theme">
                         <FaFile/><br/>

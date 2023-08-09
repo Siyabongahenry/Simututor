@@ -18,8 +18,7 @@ export default function PublicRoute()
             path:"/",
             element:<HomePage/>,
             childrens:[]
-        }
-        ,
+        },
         {
     
             path:"/university",
@@ -43,8 +42,7 @@ export default function PublicRoute()
             path:"/photoshoot",
             element:<PhotoShoot/>,
             childrens:[]
-        }
-        ,
+        },
         {
             path:"/mathematics/*",
             element:<MathematicsPage/>,
@@ -54,8 +52,7 @@ export default function PublicRoute()
                     element:""
                 }
             ]
-        }
-        ,
+        },
         {
             path:"/physics/*",
             element:<PhysicsPage/>,
@@ -65,8 +62,7 @@ export default function PublicRoute()
                     element:""
                 }
             ]
-        }
-        ,
+        },
         {
             path:"/chemistry/*",
             element:<ChemistryPage/>,
@@ -76,20 +72,17 @@ export default function PublicRoute()
                     element:""
                 }
             ]
-        }
-        ,
+        },
         {
             path:"/login",
             element:<LoginPage/>,
             childrens:[]
-        }
-        ,
+        },
         {
             path:"/login",
             element:<LoginPage/>,
             childrens:[]
-        }
-        ,
+        },
         {
             path:"/about/*",
             element:<AboutPage/>,
