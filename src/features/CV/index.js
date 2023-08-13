@@ -1,6 +1,8 @@
 import CreateCV from "./Component/CreateCV";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import InputTemplate from "./Component/InputTemplate";
+
+export const CVOwnerContext = createContext();
 export default function Index()
 {
     const[cvOwnerDetails,setCVOwnerDetails] = useState(
@@ -16,7 +18,7 @@ export default function Index()
                 healthStatus:"Excellent",
                 criminalRecord:"",
                 maritalStatus:"Single",
-                driversLicense:"",
+                driversLicence:"",
                 computerLiteracy:""
             },
             address:{
@@ -36,21 +38,37 @@ export default function Index()
                 year:"",
                 average:""
             },
-            tertiaryEdu:[],
+            tertiaryEdus:[],
             experiences:[] ,
             references:[],
-            summary:""
+            summary:"",
+            defaultTheme:{
+                boxSizing:"border-box",
+                backgroundColor:"#015289",
+                color:"Black",
+                margin:"auto",
+                width:"210mm",
+                Height:"265mm",
+                marginTop:"5mm",
+                padding:"5mm",
+                fontSize:"11pt",
+                overflowY:"hidden"
+            },
+            theme:null,
         }
     );
 
     useEffect(()=>{
            const userDetails =JSON.parse(localStorage.getItem("userDetails"));
+
            if(userDetails)
            {
                 setCVOwnerDetails(userDetails);
            }
+
     },[]);
 
+    //objects for update functions
     const saveChanges={
         personalInfo:savePersonalInfo,
         secEdu:saveSecEdu,
@@ -60,60 +78,104 @@ export default function Index()
         experiences:saveExperiences,
         references:saveReferences,
         summary:saveSummary,
+        removeExperience,
+        removeReference,
+        removeTertiaryEdu
     }
 
-    function savePersonalInfo(personalInfo){
-        setCVOwnerDetails({...cvOwnerDetails, personalInfo});
+    
+    //helper method for details update
+    function updateCvOwnerDetails(newDetails)
+    {
+        setCVOwnerDetails(newDetails);
+        localStorage.setItem("userDetails",JSON.stringify(newDetails));
+    }
 
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,personalInfo}));
+    //personal details
+    function savePersonalInfo(personalInfo){
+        let newDetails = {...cvOwnerDetails, personalInfo};
+       updateCvOwnerDetails(newDetails);
     }  
 
+    //contacts
     function saveContacts(contacts)
     {
-        setCVOwnerDetails({...cvOwnerDetails, contacts});
-
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,contacts}));
+        let newDetails = {...cvOwnerDetails, contacts};
+        updateCvOwnerDetails(newDetails);
     }
 
+    //address
     function saveAddress(address)
     {
-        setCVOwnerDetails({...cvOwnerDetails,address});
-
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,address}));
+        let newDetails = {...cvOwnerDetails,address};
+        updateCvOwnerDetails(newDetails);
     }
 
+    //secondary education
     function saveSecEdu(secEdu={}){
-        setCVOwnerDetails({...cvOwnerDetails,secEdu});
-
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,secEdu}));
+        let newDetails = {...cvOwnerDetails,secEdu};
+        updateCvOwnerDetails(newDetails);
     }
 
-    function saveExperiences(experiences=[]){
-        setCVOwnerDetails({...cvOwnerDetails,experiences});
-
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,experiences}));
+    //experiences
+    function saveExperiences(experience){
+        let newDetails = {...cvOwnerDetails,experiences:[...cvOwnerDetails.experiences,experience]};
+        updateCvOwnerDetails(newDetails);
     }
-    function saveReferences(references=[]){
-        setCVOwnerDetails({...cvOwnerDetails,references});
-
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,references}));
+    function removeExperience(id)
+    {
+        let newExperiences = cvOwnerDetails.experiences.filter((e)=>e.id !== id);
+        let newDetails = {...cvOwnerDetails,experiences:newExperiences};
+        updateCvOwnerDetails(newDetails);
     }
-    function saveTertiaryEdu(tertiaryEdu=[]){
-        setCVOwnerDetails({...cvOwnerDetails,tertiaryEdu});
 
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,tertiaryEdu}));
+    //references
+    function saveReferences(reference){
+        let newDetails = {...cvOwnerDetails,references:[...cvOwnerDetails.references,reference]};
+        updateCvOwnerDetails(newDetails);
     }
+    function removeReference(id)
+    {
+        let newReferences = cvOwnerDetails.references.filter((r)=>r.id !==id);
+        let newDetails = {...cvOwnerDetails,references:newReferences};
+       updateCvOwnerDetails(newDetails);
+    }
+
+    //tertiary education
+    function saveTertiaryEdu(tertiaryEdu){
+
+        cvOwnerDetails.tertiaryEdus = cvOwnerDetails.tertiaryEdus?
+                                    [...cvOwnerDetails.tertiaryEdus,tertiaryEdu]:
+                                    [tertiaryEdu];
+
+        updateCvOwnerDetails({...cvOwnerDetails});
+    }
+
+    function removeTertiaryEdu(id){
+        let newTertiaryEdus = cvOwnerDetails.tertiaryEdus.filter(ti=>ti.id !== id);
+        let newDetails = {...cvOwnerDetails,tertiaryEdus:newTertiaryEdus};
+        updateCvOwnerDetails(newDetails);
+    }
+
+    //summary
     function saveSummary(summary=""){
-        setCVOwnerDetails({...cvOwnerDetails, summary});
-
-        localStorage.setItem("userDetails",JSON.stringify({...cvOwnerDetails,summary}));
+        let newDetails = {...cvOwnerDetails, summary};
+        updateCvOwnerDetails(newDetails);
     }
     
+    //theme
+    function saveTheme(theme){
+        let newDetails = {...cvOwnerDetails, theme};
+        updateCvOwnerDetails(newDetails);
+    }
+
     return(
-        <div className="container text-theme">
-            <h1 className="text-center">Create your CV</h1>
-            <InputTemplate cvOwnerDetails={cvOwnerDetails} saveChanges={saveChanges}/>
-            <CreateCV cvOwnerDetails={cvOwnerDetails}/>       
-        </div>
+        <CVOwnerContext.Provider value={cvOwnerDetails}>
+            <div className="container text-theme">
+                <h1 className="text-center">Create your CV</h1>
+                <InputTemplate cvOwnerDetails={cvOwnerDetails} saveChanges={saveChanges}/>
+                <CreateCV cvOwnerDetails={cvOwnerDetails} saveTheme={saveTheme}/>       
+            </div>
+        </CVOwnerContext.Provider>
     )
 }

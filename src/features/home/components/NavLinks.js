@@ -7,19 +7,19 @@ export default function NavLinks(){
             <div className="col-12 col-md-6">
                 <section className="border m-2 text-center p-2 link-container">
                     <h2 className="text-theme">
-                        <FaFile/><br/>
-                        Create your CV
+                        <FaFile className="text-white"/><br/>
+                        CV
                     </h2>
-                    <Link className="btn-link" to="/cv">Starts</Link>
+                    <Link className="btn-link" to="/cv">Create Now</Link>
                 </section>
             </div>
             <div className="col-12 col-md-6">
                 <section className="border m-2 text-center p-2 link-container">
                     <h2 className="text-theme">
-                        <FaFile/><br/>
-                        Create your Formal Letter
+                        <FaFile className="text-white"/><br/>
+                        Formal Letter
                     </h2>
-                    <Link className="btn-link" to="/letter">Starts</Link>
+                    <Link className="btn-link" to="/letter">Create Now</Link>
                 </section>
             </div>
         </div>

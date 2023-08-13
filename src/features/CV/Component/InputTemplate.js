@@ -10,15 +10,31 @@ import ContactsInput from "./ContactsInput";
 export default function InputTemplate({cvOwnerDetails,saveChanges})
 {    
     return(
-        <div>
-            <PersonalInfoInput personalInfo={cvOwnerDetails.personal} savePersonalInfo={saveChanges.personalInfo}/>
-            <ContactsInput contacts={cvOwnerDetails.contacts} saveContacts={saveChanges.contacts}/>
-            <AddressInput address={cvOwnerDetails.address} saveAddress={saveChanges.address}/>
-            <SecEduInput secEdu={cvOwnerDetails.secEdu} saveSecEdu={saveChanges.secEdu}/>
-            <TertiaryInput tertiaryEdu={cvOwnerDetails.tertiaryEdu} saveTertiaryEdu={saveChanges.tertiaryEdu}/>
-            <ExperienceInput experiences={cvOwnerDetails.experiences} saveExperiences={saveChanges.experiences}/>
-            <ReferencesInput references={cvOwnerDetails.references} saveReferences={saveChanges.references}/>
-            <SummaryInput summary={cvOwnerDetails.summary} saveSummary={saveChanges.summary}/>
+        <div className="row">
+            <div className="col-12 col-lg-6">
+                <PersonalInfoInput personalInfo={cvOwnerDetails.personal} savePersonalInfo={saveChanges.personalInfo}/>
+            </div>
+            <div className="col-12 col-lg-6">
+                <ContactsInput contacts={cvOwnerDetails.contacts} saveContacts={saveChanges.contacts}/>
+            </div>
+            <div className="col-12 col-lg-6">
+                <AddressInput address={cvOwnerDetails.address} saveAddress={saveChanges.address}/>
+            </div>
+            <div className="col-12 col-lg-6">
+                <SecEduInput secEdu={cvOwnerDetails.secEdu} saveSecEdu={saveChanges.secEdu}/>
+            </div>
+            <div className="col-12 col-lg-6">
+                <TertiaryInput saveTertiaryEdu={saveChanges.tertiaryEdu} removeTertiaryEdu={saveChanges.removeTertiaryEdu}/>
+            </div>
+            <div className="col-12 col-lg-6">
+                <ExperienceInput saveExperiences={saveChanges.experiences} removeExperience ={saveChanges.removeExperience}/>
+            </div>
+            <div className="col-12 col-lg-6">
+                <ReferencesInput saveReferences={saveChanges.references} removeReference={saveChanges.removeReference} />
+            </div>
+            <div className="col-12 col-lg-6">
+                <SummaryInput summary={cvOwnerDetails.summary} saveSummary={saveChanges.summary}/>
+            </div>
         </div>
     )
 }

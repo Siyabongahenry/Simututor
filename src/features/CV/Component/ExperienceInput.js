@@ -1,64 +1,64 @@
 import InputsContainer from "./InputsContainer";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import {v4 as uuidv4} from "uuid";
+import { CVOwnerContext } from "..";
 
-export default function ExperienceInput({experiences:_jobs,saveExperiences})
+export default function ExperienceInput({saveExperiences,removeExperience})
 {
-    const[job,setJob] = useState({
+    //RETRIEVE EXPERIENCES FROM SAVED EXPERIENCES
+    const{experiences} = useContext(CVOwnerContext);
+
+    const[experience,setExperience] = useState({
         id:"",
         companyName:"",
         position:"",
-        startDate:"2020-05-23",
-        endDate:"2023-07-24",
+        startDate:"",
+        endDate:"",
         reason:"Termination of Contract"
     });
 
-    const[jobs,setJobs] = useState([]);
-
-    useEffect(()=>{
-        const addJobs=()=>{
-            setJobs([..._jobs]);
-        }
-        addJobs();
-    },[_jobs]);
 
     const inputHandler = (e)=>{
-        setJob({
-            ...job,
+        setExperience({
+            ...experience,
             [e.target.name]:e.target.value,
-            id:job.id===""?uuidv4():job.id
+            id:experience.id===""?uuidv4():experience.id
         });
     }
 
-    const appendToJobs=()=>{
-        if(!(job.id && job.companyName && job.position)) return;
-
-        if(jobs.some(r=>r.id === job.id)) return;
-       
-        setJobs([...jobs,job]);
-
-        setJob({
-            ...job,
+    const clearInputs=()=>{
+        setExperience({
+            ...experience,
             id:"",
             companyName:"",
             position:"",
-            startDate:"2020-05-23",
-            endDate:"2023-07-24"
+            startDate:"",
+            endDate:""
         });
     }
 
-    const removeJob=(id)=>{
-        setJobs(jobs.filter(j=>j.id === id));
+    const saveChanges = ()=>{
+        if(experiences.some(e=>e.id === experience.id)) return;
+
+        let inputsValid = experience.companyName &&
+                          experience.position &&
+                          experience.startDate &&
+                          experience.endDate;
+
+        if(!inputsValid) return;
+
+        saveExperiences(experience);
+        clearInputs();
     }
 
     return (
-        <InputsContainer headerText="Work Experience" savefunc={()=>{saveExperiences(jobs)}}>
+        <InputsContainer headerText="Work Experience" savefunc={saveChanges}>
             <div>
                 {
-                    jobs.map((j)=>
+                    experiences.map((j)=>
                         <div key={j.id} className="row mt-2">
-                            <div className="col-12 text-end"><FaTrash onClick={()=>{removeJob(j.id)}} className="text-danger"/></div>
+                            <div className="col-12 text-end"><FaTrash onClick={()=>{removeExperience(j.id)}} className="text-danger"/></div>
                             <div className="col-6">Company Name</div>
                             <div className="col-6">{j.companyName}</div>
                             <div className="col-6">Position</div>
@@ -76,21 +76,15 @@ export default function ExperienceInput({experiences:_jobs,saveExperiences})
             <hr/>
             <div className="mt-2">
                 <label className="form-label">Company Name</label>
-                <input name="companyName" type="text" value={job.companyName} className="form-control" onChange={inputHandler}/>
+                <input name="companyName" type="text" value={experience.companyName} className="form-control" onChange={inputHandler}/>
                 <label className="form-label">Position</label>
-                <input name="position" type="text" value={job.position} className="form-control" onChange={inputHandler}/>
+                <input name="position" type="text" value={experience.position} className="form-control" onChange={inputHandler}/>
                 <label className="form-label">StartDate</label>
-                <input name="startDate" type="date" value={job.startDate} className="form-control" onChange={inputHandler}/>
+                <input name="startDate" type="date" value={experience.startDate} className="form-control" onChange={inputHandler}/>
                 <label className="form-label">End Date</label>
-                <input name="endDate" type="date" value={job.endDate} className="form-control" onChange={inputHandler}/>
+                <input name="endDate" type="date" value={experience.endDate} className="form-control" onChange={inputHandler}/>
                 <label className="form-label">Reason of Leaving</label>
-                <input name="reason" type="text" value={job.reason} className="form-control" onChange={inputHandler}/>
-            </div>
-            <div className="p-2 text-center">
-                <p className="text-danger">
-                    Add your experience to the list before saving.
-                </p>
-                <button className="btn btn-outline-primary" onClick={appendToJobs}><FaPlus/> Add To List</button>
+                <input name="reason" type="text" value={experience.reason} className="form-control" onChange={inputHandler}/>
             </div>
         </InputsContainer>
     )

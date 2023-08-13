@@ -1,14 +1,24 @@
-import{useState} from "react";
+import{useContext, useEffect, useState} from "react";
 import CreatePropInput from "./CreatePropInput";
 import InputsContainer from "./InputsContainer";
 import { FaAddressBook } from "react-icons/fa";
-export default function AddressInput({address:_address,saveAddress})
+import { CVOwnerContext } from "..";
+export default function AddressInput({saveAddress})
 {
+    const{address:_address} = useContext(CVOwnerContext);
+
     const[address,setAddress] = useState({
         surbub:"",
         town:"",
         postalCode:""
     });
+
+    useEffect(()=>{
+        if(!_address) return;
+
+        setAddress({..._address});
+
+    },[_address]);
 
     const handleInput =(e)=>{
         setAddress({...address,[e.target.name]:e.target.value})

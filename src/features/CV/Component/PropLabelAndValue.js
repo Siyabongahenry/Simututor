@@ -1,8 +1,14 @@
 export default function PropLabelAndValue({labelName,value}){
+    const styles = {
+        float:"left",
+        padding:"0",
+        margin:"0",
+        lineHeight:"2"
+    }
     return(
         <div style={{overflow:"auto"}}>
-            <p style={{width:"80mm",float:"left"}}>{labelName}</p>
-            <p style={{float:"left"}}>:&nbsp;{value}</p>
+            <p style={{width:"80mm",...styles}}>{labelName}</p>
+            <p style={{...styles}}>:&nbsp;{value}</p>
         </div>
     )
 }

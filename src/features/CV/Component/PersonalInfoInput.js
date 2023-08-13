@@ -1,8 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import InputsContainer from "./InputsContainer";
 import {FaUserCircle } from "react-icons/fa";
-export default function PersonalInfoInput({personalInfo:_personalInfo,savePersonalInfo})
+import { CVOwnerContext } from "..";
+
+export default function PersonalInfoInput({savePersonalInfo})
 {
+   //RETRIEVE PERSONAL INFO FROM SAVED INFROMATION
+   const{personalInfo:_personalInfo} = useContext(CVOwnerContext);
+
     const[personalInfo,setPersonalInfo] = useState({
       firstName:"",
       middleName:"",
@@ -24,14 +29,16 @@ export default function PersonalInfoInput({personalInfo:_personalInfo,savePerson
       healthStatus:"Excellent",
       criminalRecord:"None",
       maritalStatus:"Single",
-      driversLicense:"",
+      driversLicence:"",
       computerLiteracy:""
     });
 
+    //SET PESORNAL INFORMATION USING SAVED INFO
     useEffect(()=>{
       const addPersonalInfo=()=>{
          if(!_personalInfo) return;
          setPersonalInfo({..._personalInfo});
+
       }
 
       addPersonalInfo();
@@ -66,6 +73,14 @@ export default function PersonalInfoInput({personalInfo:_personalInfo,savePerson
             <div>
                <label className="form-label">Tax Number</label>
                <input name="taxNumber" value={personalInfo.taxNumber} onChange={handleInput}  className="form-control" placeholder="SARS Tax Number"/>
+            </div>
+            <div>
+               <label className="form-label">Drivers Licence</label>
+               <input name="driversLicence" value={personalInfo.driversLicence} onChange={handleInput}  className="form-control" placeholder="e.g C1"/>
+            </div>
+            <div>
+               <label className="form-label">Computer Literacy</label>
+               <input name="computerLiteracy" value={personalInfo.computerLiteracy} onChange={handleInput}  className="form-control" placeholder="e.g MS Word and MS Excel"/>
             </div>
             <div>
                <label className="form-label">Health Status</label>

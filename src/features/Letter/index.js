@@ -1,11 +1,13 @@
 import { useState,useEffect } from "react";
 import InputTemplate from "./Component/InputTemplate";
 import OutputTemplate from "./Component/OutputTemplate";
+import { yyyymmddDate } from "../../utils/formatDate";
+
 export default function Letter()
 {
-    const[details,setDetails] = useState({
+    const defaultDetails = {
         address1:"",
-        date:new Date().toDateString(),
+        date:yyyymmddDate(),
         address2:"",
         subject:"",
         intro:"",
@@ -13,10 +15,15 @@ export default function Letter()
         ending:"",
         names:"",
         person:""
-    });
+    };
+    const[details,setDetails] = useState({});
 
     useEffect(()=>{
-        const _details =JSON.parse(localStorage.getItem("letterDetails"));
+        let storedDetails = localStorage.getItem("letterDetails");
+
+        if(!storedDetails) return setDetails(defaultDetails);
+
+        const _details =JSON.parse(storedDetails);
         const _signature = localStorage.getItem("signature-image");
 
         if(_details)
@@ -46,11 +53,20 @@ export default function Letter()
         setSignature(_signature);
     }
 
+    const clearLetter = ()=>{
+        localStorage.clear("letterDetails");
+        setDetails(
+            {
+                ...defaultDetails
+            }
+        )
+    }
+
     return(
         <div>
             <h1 className="text-center text-theme">Create your formal letter</h1>
             <InputTemplate saveChanges={saveChanges}   handleInput={handleInput} handleSignatureInput={handleSignatureInput}  details={details}/>
-            <OutputTemplate details={details} signature={signature}/>
+            <OutputTemplate details={details} signature={signature} clearLetter={clearLetter}/>
         </div>
     )
 }

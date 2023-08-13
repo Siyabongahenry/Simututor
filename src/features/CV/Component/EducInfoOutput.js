@@ -2,7 +2,13 @@ import CVSection from "./CVSection";
 import CVInnerSection from "./CVInnerSection";
 import PropLabelAndValue from "./PropLabelAndValue";
 import {v4 as uuidv4} from "uuid";
-export default function EducInfoOutput({secEdu={},tertiaryEdu=[]}){
+import {useContext} from "react";
+import { CVOwnerContext } from "..";
+
+export default function EducInfoOutput(){
+
+    const{tertiaryEdus,secEdu} = useContext(CVOwnerContext);
+
     return(
         <CVSection name="Education">
             <CVInnerSection name="Secondary Education">
@@ -11,15 +17,16 @@ export default function EducInfoOutput({secEdu={},tertiaryEdu=[]}){
                 <PropLabelAndValue labelName="Year" value={secEdu.year}/>
             </CVInnerSection>   
             {
-                tertiaryEdu.length > 0 &&
+               (tertiaryEdus && tertiaryEdus.length > 0) &&
                 <CVInnerSection name="Tertiary Education">
                     {
-                        tertiaryEdu.map(
+                        tertiaryEdus.map(
                             (edu)=>
                             <div key={uuidv4()}>
                                 <PropLabelAndValue labelName="Istitution Name" value={edu.instituteName}/>
                                 <PropLabelAndValue labelName="Course" value={edu.course}/>
                                 <PropLabelAndValue labelName="Year of Completion" value={edu.endDate}/>
+                                <hr/>
                             </div>
                         )
                     }

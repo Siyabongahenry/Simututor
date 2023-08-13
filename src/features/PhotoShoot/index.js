@@ -8,7 +8,7 @@ const PhotoShoot = ()=>{
             hours:1,
             originalCost:146.5,
             cost:146.5,
-            photographer:"Phillo"
+            photographer:"Phillo",
         },
         {
             name:"Photoshoot",

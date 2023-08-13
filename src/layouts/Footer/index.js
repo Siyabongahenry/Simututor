@@ -14,7 +14,7 @@ export default function Footer()
                 </p>
             </div>
             <div className="text-center text-theme">
-               <small>&copy;2023 - simututor.com</small>
+               <small>&copy;2023 - simututors.com</small>
             </div>
         </footer>
     );

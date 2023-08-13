@@ -1,8 +1,13 @@
-import{useEffect, useState} from "react";
+import{useContext, useEffect, useState} from "react";
 import InputsContainer from "./InputsContainer";
 import { FaPhone } from "react-icons/fa";
-export default function ContactsInput({contacts:_contacts,saveContacts})
+import { CVOwnerContext } from "..";
+export default function ContactsInput({saveContacts})
 {
+
+    const{contacts:_contacts} = useContext(CVOwnerContext);
+
+    
     const[contacts,setContacts] = useState({
         mobileNo:"",
         alternative:"",

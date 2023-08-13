@@ -1,11 +1,15 @@
 import { FaPlus, FaTrash } from "react-icons/fa";
 import InputsContainer from "./InputsContainer";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {v4 as uuidv4} from "uuid";
+import { CVOwnerContext } from "..";
 
-export default function ReferencesInput({references:_references,saveReferences})
+export default function ReferencesInput({saveReferences,removeReference})
 {
-    const[references,setReferences] = useState([..._references]);
+    //RETRIEVE REFERENCES FROM SAVED REFENCES
+    const{references} = useContext(CVOwnerContext);
+
+    //REFERENCE
     const[reference,setReference] = useState({
         id:"",
         companyName:"",
@@ -13,23 +17,17 @@ export default function ReferencesInput({references:_references,saveReferences})
         personPosition:"",
         personContact:""
     });
+
+    
     const handleInput =(e)=>{
         setReference({...reference,
             [e.target.name]:e.target.value,
             id:reference.id===""?uuidv4():reference.id
         });
     }
-
-    const appendReference=()=>{
-        
-        if(!(reference.id && reference.companyName && reference.personContact)) return;
-
-        if(references.some(r=>r.id === reference.id)) return;
-
-        setReferences([...references,reference]);
-
+    
+    const clearReference = ()=>{
         setReference({
-            ...reference,
             id:"",
             companyName:"",
             personName:"",
@@ -38,19 +36,30 @@ export default function ReferencesInput({references:_references,saveReferences})
         });
     }
 
-    const filterReferences=(id)=>{
-        setReferences(references.filter(({id:_id}) => id===_id))
+    const saveChanges =()=>{
+
+        if(references.some(r=>r.id === reference.id)) return;
+
+        let inputsValid = reference.companyName && 
+                         reference.personName && 
+                         reference.personPosition &&
+                         reference.personContact;
+
+        if(!inputsValid) return;
+
+        saveReferences(reference);
+        clearReference();
     }
 
     return(
-        <InputsContainer headerText="References" savefunc={()=>{saveReferences(references)}}>      
+        <InputsContainer headerText="References" savefunc={saveChanges}>      
             {
                 references.map(
                     (ref)=>
                     <div className="row mb-2" key={ref.id}>
                         <div className="col-6"></div>
                         <div className="col-6 text-end pr-4">
-                            <FaTrash className="text-danger" onClick={()=>filterReferences(ref.id)}/>
+                            <FaTrash className="text-danger" onClick={()=>removeReference(ref.id)}/>
                         </div>
                         <div className="col-6">Company</div><div className="col-6">:&nbsp;{ref.companyName}</div>
                         <div className="col-6">Person Names</div><div className="col-6">:&nbsp;{ref.personName}</div>
@@ -70,12 +79,6 @@ export default function ReferencesInput({references:_references,saveReferences})
                 <label className="form-label">Person Contact</label>
                 <input name="personContact" value={reference.personContact} onChange={handleInput} className="form-control" placeholder="Person Contact"/>
             </div>
-            <div className="text-danger text-center">
-               Add your reference to the list before saving.
-            </div>
-            <div className="p-2 text-center">
-                <button className="btn btn-outline-primary" onClick={appendReference}><FaPlus/> Add To List</button>
-            </div>     
         </InputsContainer>
     )
 }

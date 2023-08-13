@@ -1,44 +1,58 @@
-import { FaUniversity,FaPlus, FaTrash } from "react-icons/fa"
+import { FaUniversity, FaTrash } from "react-icons/fa"
 import InputsContainer from "./InputsContainer";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {v4 as uuidv4} from "uuid";
-export default function TertiaryInput({tertiaryEdu:_tertiaryEdu,saveTertiaryEdu: saveTertiaryEdu})
+import { CVOwnerContext } from "..";
+export default function TertiaryInput({saveTertiaryEdu,removeTertiaryEdu})
 {
-    const[tertiaryEdu,setTertiaryEdu] = useState({});
-    const[tertiaryEdus,setTertiaryEdus] = useState([]);
 
+    const{tertiaryEdus} = useContext(CVOwnerContext);
+
+    const[tertiaryEdu,setTertiaryEdu] = useState({
+        instituteName:"",
+        course:"",
+        startDate:"",
+        endDate:""
+    });
+    
     const handleInput = (e)=>{
-
         setTertiaryEdu({...tertiaryEdu,[e.target.name]:e.target.value,id:uuidv4()});
     }
 
-    const appendTertiaryEdu =()=>{
-        if(tertiaryEdus.some(edu=>edu.id === tertiaryEdu.id) || tertiaryEdu.name==="" || tertiaryEdu.course ==="") return;
-        setTertiaryEdus([...tertiaryEdus,tertiaryEdu]);
+    const saveChanges = ()=>{
+
+        let inputsValid = tertiaryEdu.instituteName && tertiaryEdu.course && tertiaryEdu.endDate;
+
+        if(!inputsValid) return;
+
+        //updates after production
+        //ensuring that the property tertiaryEdus is defined
+        if(!tertiaryEdus) return saveTertiaryEdu(tertiaryEdu);
+
+        if(tertiaryEdus.some(t=>t.id === tertiaryEdu.id)) return;
+
+        return saveTertiaryEdu(tertiaryEdu);
     }
 
-    const removeTertiaryEdu=(id)=>{
-    
-        setTertiaryEdus(tertiaryEdus.filter(edu => edu.id  !== id));
-    }
     return(
-        <InputsContainer icon={<FaUniversity/>} headerText="Tertiary Education" savefunc={()=>{saveTertiaryEdu(tertiaryEdus)}}>
+        <InputsContainer icon={<FaUniversity/>} headerText="Tertiary Education" savefunc={saveChanges}>
             <div>
                 {
+                    tertiaryEdus &&
                     tertiaryEdus.map(
                         (tEdu)=>
                             <div className="row" key={tEdu.id}>
                                 <div className="col-12 text-end">
                                     <FaTrash className="text-danger" onClick={()=>{removeTertiaryEdu(tEdu.id)}}/>
                                 </div>
-                                <div className="col-6 p-2">Intitution Name</div>
-                                <div className="col-6 p-2">{tEdu.instituteName}</div>
-                                <div className="col-6 p-2">Course</div>
-                                <div className="col-6 p-2">{tEdu.course}</div>
-                                <div className="col-6 p-2">Start Date</div>
-                                <div className="col-6 p-2">{tEdu.startDate}</div>
-                                <div className="col-6 p-2">End Date</div>
-                                <div className="col-6 p-2">{tEdu.endDate}</div>
+                                <div className="col-6">Intitution Name</div>
+                                <div className="col-6">{tEdu.instituteName}</div>
+                                <div className="col-6">Course</div>
+                                <div className="col-6">{tEdu.course}</div>
+                                <div className="col-6">Start Date</div>
+                                <div className="col-6">{tEdu.startDate}</div>
+                                <div className="col-6">End Date</div>
+                                <div className="col-6">{tEdu.endDate}</div>
                                 <div className="col-12"><hr/></div>
                             </div>      
                     )
@@ -59,9 +73,6 @@ export default function TertiaryInput({tertiaryEdu:_tertiaryEdu,saveTertiaryEdu:
             <div>
                 <label className="formLabel">To</label>
                 <input name="endDate" type="date" className="form-control"  onChange={handleInput}/>
-            </div>
-            <div className="text-center p-2">
-                <button onClick={appendTertiaryEdu} className="btn btn-outline-primary"><FaPlus/>&nbsp;Add</button>
             </div>
         </InputsContainer>
     )
