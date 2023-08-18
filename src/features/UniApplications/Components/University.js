@@ -38,21 +38,17 @@ export default function University({uni})
                             <td>Applications Fee</td>
                             <td>{uni.applicationFee}</td>
                         </tr>
-                        <tr>
-                            <td>List of Courses</td>
-                            <td><a className="btn btn-secondary" href={uni.prospectorsLink}>Download Prospectors</a></td>
-                        </tr>
-                    </tbody>
+                       </tbody>
                 </table>
             }
             <p className="text-center">
                 {
                     uni.isOpen?<b className="text-success">Open for applications</b>:
-                    <b className="text-danger">The University is Closed for Applications</b>
+                    <b className="text-danger">Closed for Applications(You can check their website to confirm)</b>
                 }
             </p>
             <p className="text-center">
-                <a className="btn btn-primary" href={uni.link}>Apply at the {uni.name}</a>
+                <a className="btn btn-primary" href={uni.link} target="_blank" rel="noopener noreferrer">Apply at the {uni.name}</a>
             </p>       
         </section>
     )
