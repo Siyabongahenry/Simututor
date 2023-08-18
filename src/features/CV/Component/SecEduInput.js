@@ -11,6 +11,7 @@ export default function SecEduInput({saveSecEdu})
     const[secEdu,setSecEdu] = useState({
         schoolName:"",
         highestGrade:"",
+        subjects:"",
         year:"",  
     });
 
@@ -33,6 +34,11 @@ export default function SecEduInput({saveSecEdu})
             <div  className="mt-2">
                 <label className="form-label">Year of Completion</label>
                 <input  name="year" type="date"  value={secEdu.year} onChange={handleInput} className="form-control"/>
+            </div>
+            <div  className="mt-2">
+                <label className="form-label">Subjects</label>
+                <textarea  name="subjects" type="text"  value={secEdu.subjects} onChange={handleInput}
+                 className="form-control" placeholder="Mathematics, English HL, Physical Sciences, Geography,.." />
             </div>
             <div  className="mt-2">
                 <label className="form-label">Highest Grade:</label>&nbsp;

@@ -22,6 +22,15 @@ export default function NavLinks(){
                     <Link className="btn-link" to="/letter">Create Now</Link>
                 </section>
             </div>
+            <div className="col-12 col-md-6">
+                <section className="border m-2 text-center p-2 link-container">
+                    <h2 className="text-theme">
+                        <FaUniversity className="text-white"/><br/>
+                        SA Universities Applications
+                    </h2>
+                    <Link className="btn-link" to="/university">Visit Now</Link>
+                </section>
+            </div>
         </div>
     )
 }

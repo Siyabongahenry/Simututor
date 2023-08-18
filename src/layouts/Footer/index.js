@@ -6,11 +6,8 @@ export default function Footer()
         <footer className="text-theme text-center p-2 border-top"> 
             <b>Contacts</b>
             <div className="row">
-                <p className="col-12 col-lg-3"> 
-                    <FaEnvelope/> simututors@help.com
-                </p>
                 <p className="col-12 col-lg-3">
-                    <FaWhatsapp/><FaPhone/>+27 66 411 8179
+                    <FaWhatsapp/>+27 66 411 8179
                 </p>
             </div>
             <div className="text-center text-theme">

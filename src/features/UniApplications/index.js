@@ -1,12 +1,14 @@
 import { useState } from "react"
 import University from "./Components/University";
 import { universitiesData } from "./Data/universities-data";
-import {FaUniversity,FaInfoCircle} from "react-icons/fa"
+import {FaUniversity,FaInfoCircle, FaSearch} from "react-icons/fa"
 export default function UniApplications()
 {
     const [universities,setUniversities] = useState([...universitiesData]);
     const[selectedProv,setSelectedProv] = useState("None");
     const[uniSelectedProp,setUniSelectedProp] = useState("All");
+    const[searchInput,setSearchInput] = useState("");
+
     const filterByProp=(e)=>{
         let option = e.target.value;
         setUniSelectedProp(option);
@@ -43,14 +45,23 @@ export default function UniApplications()
 
         setUniversities(universitiesData.filter(uni=>uni.province === option));
     }
+
+    const handleSearch = ()=>{
+
+        if(!searchInput) return setUniversities([...universitiesData]);
+
+        const filter = (u)=>(u.name.toLowerCase().search(searchInput.toLowerCase()) >= 0) ||
+                        (u.abbrev && u.abbrev.search(searchInput) >= 0);
+
+        const newUniData = universitiesData.filter(filter);
+
+        setUniversities(newUniData);
+
+        setSearchInput("");
+    }
     return(
         <div className="m-2">
-            <div className="alert alert-danger text-center">
-                <FaInfoCircle/>
-                This page is still under construction thus some of the links might not work as expected,
-                 and the information could be incorrect.
-            </div>
-            <h1 className="text-center text-theme"><FaUniversity/>&nbsp;<br/>South African Universities</h1>
+            <h1 className="text-center text-theme">South African Universities</h1>
             <div className="bg-white p-2 text-center">
                 <p>
                     <b>Filter BY:</b>&nbsp;
@@ -72,17 +83,32 @@ export default function UniApplications()
                             )
                         }            
                     </select>
+                    
                 </p>
-                <p>
+                <div className="row">
+                    <div className="col-12 col-lg-2"></div>
+                    <div className="col-12 col-lg-8">
+                        <div className="input-group">
+                        <input value={searchInput} onChange={(e)=>{setSearchInput(e.target.value)}} className="form-control" placeholder="Search by university name.."/>
+                        <button className="btn btn-primary" onClick={handleSearch}>
+                            <FaSearch/>
+                        </button>
+                        </div> 
+                    </div>  
+                </div>
+                <p className="text-center">
                     Showing <span className="text-primary">{universities.length}</span> universities
                 </p>
             </div>
-
+            <div className="row">
             {
                 universities.map((uni)=>
-                    <University key={uni.name} uni={uni}/>
+                    <div className="col-12 col-lg-6" key={uni.name}>
+                        <University uni={uni}/>
+                    </div>
                 )
             }
+            </div>
         </div>
     )
 }

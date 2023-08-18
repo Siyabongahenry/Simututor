@@ -1,7 +1,8 @@
 import "./topbar.css";
-import {FaBars, FaWhatsapp} from "react-icons/fa";
+import {FaBars, FaMarker, FaPen} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 export default function Topbar({sidebarToddler=f=>f,hideSidebar=f=>f}){
+
     return (
        
             <ul className="topbar">
@@ -10,7 +11,7 @@ export default function Topbar({sidebarToddler=f=>f,hideSidebar=f=>f}){
                     <NavLink to="/"  onClick={hideSidebar}><b>Simututors.</b><small className="text-white">com</small></NavLink>
                 </li>
                 <li>
-                    <FaWhatsapp/>
+                   <FaMarker/>
                 </li>
             </ul>
        

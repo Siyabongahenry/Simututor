@@ -3,7 +3,9 @@ export default function PropLabelAndValue({labelName,value}){
         float:"left",
         padding:"0",
         margin:"0",
-        lineHeight:"2"
+        lineHeight:"2",
+        width:"90mm",
+
     }
     return(
         <div style={{overflow:"auto"}}>

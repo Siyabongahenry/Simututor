@@ -1,15 +1,16 @@
 export const universitiesData=[
     {
-        log:"",
+        logo:"",
         name:"University of Johannesburg",
         openingDate:"1 April 2023",
         closingDate:"30 June 2023",
         isOpen:true,
         prospectorsLink:"",
         applicationFee:0,
-        homePage:"",
-        link:"https://registration.uj.ac.za/pls/prodi41/gen.gw1pkg.gw1view",
-        province:"Guateng"
+        homePage:"https://www.uj.ac.za/",
+        link:"https://www.uj.ac.za/admission-aid/undergraduate/",
+        province:"Guateng",
+        abbrev:"uj"
     },
     {
         name:"University of the Free State",
@@ -18,9 +19,10 @@ export const universitiesData=[
         isOpen:true,
         prospectorsLink:"",
         applicationFee:0,
-        homePage:"",
+        homePage:"www.ufs.ac.za",
         link:"https://apply.ufs.ac.za/Application/Verification",
-        province:"Free State"
+        province:"Free State",
+        abbrev:"ufs"
     },
     {
         name:"University of Mpumalanga",
@@ -30,8 +32,9 @@ export const universitiesData=[
         prospectorsLink:"",
         applicationFee:150,
         homePage:"",
-        link:"https://ienabler.ump.ac.za/pls/prodi41/gen.gw1pkg.gw1view",
-        province:"Mpumalanga"
+        link:"https://www.ump.ac.za/Study-with-us/Application-Process/Online-Applications.aspx",
+        province:"Mpumalanga",
+        abbrev:"ump"
     },
     {
         name:"University of Pretoria",
@@ -41,8 +44,9 @@ export const universitiesData=[
         prospectorsLink:"",
         applicationFee:300,
         homePage:"",
-        link:"https://upnet.up.ac.za/psc/upapply/EMPLOYEE/SA/c/UP_OAP_MENU.UP_OAP_LOGIN_FL.GBL",
-        province:"Guateng"
+        link:"https://upnet.up.ac.za/psc/upapply/EMPLOYEE/SA/c/UP_OAP_MENU.UP_OAP_LOGIN_FL.GBL?&",
+        province:"Guateng",
+        abbrev:"up"
     },
     {
         name:"North-West University(NWU)",
@@ -52,19 +56,21 @@ export const universitiesData=[
         prospectorsLink:"",
         applicationFee:0,
         homePage:"",
-        link:"https://vssweb.nwu.ac.za/aaa-webclient/StudentWebLoginWin.do#/top",
-        province:"North West"
+        link:"https://studies.nwu.ac.za/studies/how-apply-online",
+        province:"North West",
+        abbrev:"nwu"
     },
     {
         name:"University of South Africa(UNISA)",
-        openingDate:"",
-        closingDate:"",
+        openingDate:"1 September 2023",
+        closingDate:"13 October 2023",
         isOpen:true,
         prospectorsLink:"",
-        applicationFee:0,
+        applicationFee:125,
         homePage:"",
-        link:"https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission/Apply-for-admission-to-study:-application-tool",
-        province:"Westen Cape"
+        link:"https://www.unisa.ac.za/sites/corporate/default/Apply-for-admission",
+        province:"Westen Cape",
+        abbrev:"unisa"
     },
     {
         name:"University of Limpopo(UL)",
@@ -74,64 +80,70 @@ export const universitiesData=[
         prospectorsLink:"",
         applicationFee:200,
         homePage:"",
-        link:"https://ulc-prod-webserver.ul.ac.za/pls/prodi41/gen.gw1pkg.gw1view",
-        province:"Limpopo"
+        link:"https://www.ul.ac.za/index.php?Entity=Apply%20Now#start",
+        province:"Limpopo",
+        abbrev:"ul"
     },
     
     {
         name:"University of Venda(Univenda)",
         openingDate:"20 July 2023",
-        closingDate:"27 September 2023",
+        closingDate:"31 December 2023",
         isOpen:true,
         prospectorsLink:"",
         applicationFee:100,
         homePage:"",
-        link:"https://univenien.univen.ac.za/pls/prodi04/gen.gw1pkg.gw1view",
-        province:"Limpopo"
+        link:"https://www.univen.ac.za/students/student-support-services/how-to-apply/apply-online/",
+        province:"Limpopo",
+        abbrev:"univen"
     },
     {
-        name:"Univeristy of Cape Town(UCT)",
-        openingDate:"1 April 2023",
-        closingDate:"",
+        name:"University of Cape Town(UCT)",
+        openingDate:"3 April 2023",
+        closingDate:"4 August 2024",
         isOpen:true,
         prospectorsLink:"",
         applicationFee:100,
         homePage:"",
         link:"https://publicaccess.uct.ac.za/psc/public/EMPLOYEE/SA/c/NUI_FRAMEWORK.PT_LANDINGPAGE.GBL?LP=UCT_ONLINE_APP_PUBLIC&",
-        province:"Westen Cape"
+        province:"Westen Cape",
+        abbrev:"uct"
     },
     {
         name:"Stellenbonch University",
-        openingDate:"1 April 2023",
+        openingDate:"3 April 2023",
         closingDate:"31 July 2023",
         isOpen:true,
         prospectorsLink:"",
         applicationFee:100,
         homePage:"http://www.sun.ac.za/english",
         link:"https://student.sun.ac.za/signup/",
-        province:"Westen Cape"
+        province:"Westen Cape",
+        abbrev:"sun"
     },
     {
         name:"University of the Witwatersrand",
         openingDate:"1 April 2023",
-        closingDate:"",
+        closingDate:"30 June 2023(Faculty of Health) & 30 September 2023 for other programmes",
         isOpen:true,
         prospectorsLink:"",
         applicationFee:100,
         homePage:"https://www.wits.ac.za/",
         link:"https://self-service.wits.ac.za/psc/csprodonl/UW_SELF_SERVICE/SA/c/VC_OA_LOGIN_MENU.VC_OA_LOGIN_FL.GBL?&",
-        province:"Guateng"
+        province:"Guateng",
+        abbrev:"wits"
     },
     {
         name:"University of Kwazulu Natal(UKZN)",
         openingDate:"",
-        closingDate:"",
+        closingDate:"30 June 2023(Medicine) & 30 September 2023 (Other programmes)",
         isOpen:true,
         prospectorsLink:"",
-        applicationFee:0,
+        applicationFee:250,
         homePage:"",
         link:"https://www.cao.ac.za/IDLookup.aspx",
-        province:"Kwazulu Natal"
+        province:"Kwazulu Natal",
+        abbrev:"ukzn"
     },
     {
         name:"Mangosuthu University of Technology",
@@ -140,9 +152,10 @@ export const universitiesData=[
         isOpen:true,
         prospectorsLink:"",
         applicationFee:250,
-        homePage:"",
+        homePage:"https://universityinfo.co.za/uni/mut/",
         link:"https://www.cao.ac.za/IDLookup.aspx",
-        province:"Kwazulu Natal"
+        province:"Kwazulu Natal",
+        abbrev:"mut"
     },
     {
         name:"University of the Western Cape",
@@ -152,8 +165,9 @@ export const universitiesData=[
         prospectorsLink:"",
         applicationFee:0,
         homePage:"",
-        link:"https://www.uwc.ac.za/admission-and-financial-aid/apply",
-        province:"Westen Cape"
+        link:"https://www.uwc.ac.za/apply-now",
+        province:"Westen Cape",
+        abbrev:"uwc"
     },
     {
         name:"Rhodes University",
@@ -164,7 +178,8 @@ export const universitiesData=[
         applicationFee:100,
         homePage:"",
         link:"https://ross.ru.ac.za/ugadmissions",
-        province:"Eastern Cape"
+        province:"Eastern Cape",
+        abbrev:"ru"
     },
     {
         name:"Nelson Mandela Metropolitan University(NMMU)",
@@ -175,7 +190,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"",
         link:"https://applyonline.mandela.ac.za/Step1New.aspx",
-        province:"Eastern Cape"
+        province:"Eastern Cape",
+        abbrev:"nmmu"
     },
     {
         name:"Cape Peninsula University of Technology(CPUT)",
@@ -186,7 +202,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"",
         link:"https://alecto.cput.ac.za/pls/prodi41/gen.gw1pkg.gw1view",
-        province:"Westen Cape"
+        province:"Westen Cape",
+        abbrev:"cput"
     },
     {
         name:"Durban University of Technology(DUT)",
@@ -197,7 +214,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"https://www.dut.ac.za/",
         link:"https://www.cao.ac.za/IDLookup.aspx",
-        province:"Kwazulu Natal"
+        province:"Kwazulu Natal",
+        abbrev:"dut"
     },
     {
         name:"University of Zululand(Unizulu)",
@@ -208,7 +226,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"",
         link:"https://www.cao.ac.za/IDLookup.aspx",
-        province:"Kwazulu Natal"
+        province:"Kwazulu Natal",
+        abbrev:"unizulu"
     },
     {
         name:"Vaal University of Technology(VUT)",
@@ -219,7 +238,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"",
         link:"https://ienablerprod.vut.ac.za/pls/prodi41/w99pkg.mi_login",
-        province:"Guateng"
+        province:"Guateng",
+        abbrev:"vut"
     },
     {
         name:"Tshwane University of Technology(TUT)",
@@ -230,7 +250,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"",
         link:"https://ienabler.tut.ac.za/pls/prodi41/gen.gw1pkg.gw1view",
-        province:"Guateng"
+        province:"Guateng",
+        abbrev:"tut"
     },
     {
         name:"Central University of Technology(CUT)",
@@ -241,7 +262,8 @@ export const universitiesData=[
         applicationFee:0,
         homePage:"",
         link:"https://enroll.cut.ac.za/pls/prodi41/w99pkg.mi_login",
-        province:"Free State"
+        province:"Free State",
+        abbrev:"cut"
     },
     {
         name:"University of Fort Hare(ufh)",
@@ -252,6 +274,7 @@ export const universitiesData=[
         applicationFee:120,
         homePage:"https://www.ufh.ac.za/",
         link:"https://www.ufh.ac.za/dev/apply",
-        province:"Eastern Cape"
+        province:"Eastern Cape",
+        abbrev:"ufh"
     },
 ]

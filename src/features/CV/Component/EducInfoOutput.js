@@ -14,6 +14,7 @@ export default function EducInfoOutput(){
             <CVInnerSection name="Secondary Education">
                 <PropLabelAndValue labelName="School Name" value={secEdu.schoolName}/>
                 <PropLabelAndValue labelName="Highest Grade Completed" value={secEdu.highestGrade}/>
+                {secEdu.subjects && <PropLabelAndValue labelName="Subjects" value={secEdu.subjects}/>}
                 <PropLabelAndValue labelName="Year" value={secEdu.year}/>
             </CVInnerSection>   
             {

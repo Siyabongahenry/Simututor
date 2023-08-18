@@ -1,24 +1,24 @@
 import { useState } from "react";
-import {FaAngleDown,FaAngleUp, FaInfo} from "react-icons/fa";
+import {FaAngleDown,FaAngleUp, FaInfoCircle,FaUniversity} from "react-icons/fa";
 
 export default function University({uni})
 {
     const[showDetails,setShowDetails] = useState(false);
     return(
         <section className="p-2 bg-white mt-2">
-            <h2 className="text-center bg-theme text-white p-2">{uni.name}</h2>
+            <h2 className="text-center bg-theme text-theme p-2"><FaUniversity/>&nbsp;{uni.name}</h2>
             <p className="text-center">
-                <button className="btn btn-outline-info" onClick={()=>{setShowDetails(!showDetails)}}>
+                <button className="btn btn-info" onClick={()=>{setShowDetails(!showDetails)}}>
                     {
                         showDetails?
-                        <><FaInfo/>&nbsp;Hide details&nbsp;<FaAngleUp/></>:
-                        <><FaInfo/>&nbsp;View details&nbsp;<FaAngleDown/></>
+                        <><FaInfoCircle/>&nbsp;Hide details&nbsp;<FaAngleUp/></>:
+                        <><FaInfoCircle/>&nbsp;View details&nbsp;<FaAngleDown/></>
                     }
                 </button>
             </p>
             {
                 showDetails &&
-                <table className="table table-striped">
+                <table className="table">
                     <thead>
                         <tr>
                             <th></th>

@@ -36,6 +36,7 @@ export default function Index()
                 schoolName:"",
                 highestGrade:"",
                 year:"",
+                subjects:"",
                 average:""
             },
             tertiaryEdus:[],

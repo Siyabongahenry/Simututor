@@ -11,14 +11,12 @@ export default function Sidebar({displayClass,hide=f=>f})
             icon:<FaHome  className="text-info"/>,
             children:[]
         },
-        /*
         {
             name:"University Applications",
             to:"/university",
             icon:<FaUniversity  className="text-info"/>,
             children:[]
-        }
-        ,*/
+        },
         {
             name:"Create My CV",
             to:"/cv",
