@@ -49,7 +49,7 @@ export default function Index()
                 color:"Black",
                 margin:"auto",
                 width:"210mm",
-                Height:"265mm",
+                Height:"297mm",
                 marginTop:"5mm",
                 padding:"5mm",
                 fontSize:"11pt",

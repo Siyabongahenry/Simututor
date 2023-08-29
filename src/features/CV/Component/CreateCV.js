@@ -15,10 +15,8 @@ export default function CreateCV({cvOwnerDetails,saveTheme})
             boxSizing:"border-box",
             backgroundColor:"#015289",
             color:"Black",
-            margin:"auto",
             width:"210mm",
-            Height:"265mm",
-            marginTop:"5mm",
+            Height:"297mm",
             padding:"5mm",
             fontSize:"11pt"
             

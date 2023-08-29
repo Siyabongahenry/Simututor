@@ -13,7 +13,7 @@ export default function OutputTemplate({cvOwnerDetails,styles})
 
     return(
         <>
-            <div style={styles}>           
+            <div style={{...styles,height:"297mm",marginTop:"0"}}>           
                 <CVHeader names={personalInfo.firstName+" "+personalInfo.lastName} 
                     address={address} 
                     contacts={contacts}/>
@@ -24,7 +24,7 @@ export default function OutputTemplate({cvOwnerDetails,styles})
             </div>
             {
                 (experiences.length > 0 || references.length > 0 || summary) &&
-                <div style={styles}> 
+                <div style={{...styles,height:"297mm"}}> 
                     <div style={{backgroundColor:"white",padding:"2%"}}>
                         {experiences.length > 0 && <ExperiencesOutput experiences={experiences}/>}
                         {references.length > 0 && <ReferencesOutput references={references}/>}
