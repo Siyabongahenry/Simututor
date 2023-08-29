@@ -4,16 +4,18 @@ import { Route,Routes } from "react-router-dom";
 
 export default function Mathematics(){
     const routes=[
+        /*
         {
             name:"Algebra",
             path:"/algebra",
             element:<ParabolaNotes/>
-        },
+        },*/
         {
             name:"Parabola functions",
             path:"/parabola",
             element:<ParabolaNotes/>
         },
+        /*
         {
             name:"Linear functions",
             path:"/linear",
@@ -34,11 +36,11 @@ export default function Mathematics(){
             name:"Financial Maths",
             path:"/finance",
             element:<ParabolaNotes/>
-        },
+        },*/
     ]
     return(
         <>
-            <PageInsideNav navList={routes.map((link)=>({to:"/mathematics"+link.path,text:link.name}))}/>
+            <PageInsideNav navList={routes.map((link)=>({to:"/mathematics"+link.path,text:link.name}))}/>         
             <Routes>
                 {
                     routes.map((route)=>
@@ -46,6 +48,7 @@ export default function Mathematics(){
                     )
                 }
             </Routes>
+            <p className="text-center display-4 text-white">More Topics Coming Soon...</p>
         </>
     );
 }

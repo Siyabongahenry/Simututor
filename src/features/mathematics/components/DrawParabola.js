@@ -30,40 +30,10 @@ export default function DrawParabola({isForBeginners=true}){
             }));
     }
     return(
-        <div className="text-center">
-             <div>
-                {
-                    isForBeginners || !Math.abs(equationObj.p)?
-                    <div>
-                        f(x) = {equationObj.a===1?"":equationObj.a}x<sup>2</sup>
-                        {Math.abs(equationObj.q) ===0?"":equationObj.q>0?"+"+equationObj.q:equationObj.q}
-                    </div>:
-                    <div>
-                        f(x) = {equationObj.a}(x {equationObj.p})<sup>2</sup>
-                        {Math.abs(equationObj.q) ===0?"":equationObj.q>0?"+"+equationObj.q:equationObj.q}
-                    </div>
-                }
-            </div>
-            <svg  width="200" height="200" viewBox="0 0 200 200">
-                <path d={convertToCurvePath(curvePoints)} strokeWidth="2" stroke="red" fill="none"/>
-                <line x1="100" y1="0" x2="100" y2="200" stroke="black" strokeWidth="2"/>
-                <line x1="0" y1="100" x2="200" y2="100" stroke="black" strokeWidth="2"/>
-            </svg>
-            <div>
-                <input name="a" value={equationObj.a}   type="range" min="1" max="10" onChange={inputHandler}/>
-                a = {equationObj.a}
-            </div>
-            {
-                !isForBeginners &&
-                <div>
-                    <input name="p" value={equationObj.p}   type="range" min="-5" max="5" onChange={inputHandler}/>
-                    p = {equationObj.p}
-                </div> 
-            } 
-            <div>
-                <input name="q" value={equationObj.q}   type="range" min="-5" max="5" onChange={inputHandler}/>
-                q = {equationObj.q}
-            </div>      
+        <div className="text-center"> 
+           <div>
+             <a  href="https://siyabongahenry.github.io/ParabolaFunction/">Parabola Functions</a>
+            </div>    
         </div>
     );
 }

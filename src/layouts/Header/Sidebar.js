@@ -36,13 +36,13 @@ export default function Sidebar({displayClass,hide=f=>f})
             to:"/photoshoot",
             icon:<FaPhotoVideo className="text-theme"/>,
             children:[]
-        },
-        /*{
+        },*/
+        {
             name:"Mathematics",
             to:"/mathematics",
             icon:<FaCalculator className="text-info"/>,
             children:[]
-        },
+        },/*
         {
             name:"Physics",
             to:"/physics",
