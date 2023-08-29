@@ -51,13 +51,11 @@ export default function UniApplications()
         if(!searchInput) return setUniversities([...universitiesData]);
 
         const filter = (u)=>(u.name.toLowerCase().search(searchInput.toLowerCase()) >= 0) ||
-                        (u.abbrev && u.abbrev.search(searchInput) >= 0);
+                        (u.abbrev && u.abbrev.search(searchInput.toLocaleLowerCase()) >= 0);
 
         const newUniData = universitiesData.filter(filter);
 
         setUniversities(newUniData);
-
-        setSearchInput("");
     }
     return(
         <div className="m-2">
@@ -89,10 +87,7 @@ export default function UniApplications()
                     <div className="col-12 col-lg-2"></div>
                     <div className="col-12 col-lg-8">
                         <div className="input-group">
-                        <input value={searchInput} onChange={(e)=>{setSearchInput(e.target.value)}} className="form-control" placeholder="Search by university name.."/>
-                        <button className="btn btn-primary" onClick={handleSearch}>
-                            <FaSearch/>
-                        </button>
+                        <input value={searchInput} onChange={(e)=>{setSearchInput(e.target.value);handleSearch()}} className="form-control" placeholder="Search by university name.."/>
                         </div> 
                     </div>  
                 </div>

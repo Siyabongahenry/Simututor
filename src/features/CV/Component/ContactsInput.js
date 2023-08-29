@@ -28,17 +28,24 @@ export default function ContactsInput({saveContacts})
 
     return(
         <InputsContainer icon={<FaPhone/>} headerText="Contacts information" savefunc={()=>{saveContacts(contacts)}}>           
-            <label className="form-label">Mobile No</label>
-            <input name="mobileNo" value={contacts.mobileNo} onChange={handleInput}  className="form-control" placeholder="Example: 072 588 2344"/>
-           
-            <label className="form-label">Alternative</label>
-            <input name="alternative" value={contacts.alternative} onChange={handleInput} className="form-control" placeholder="Example: 066 576 9906"/>
-            
-            <label className="form-label">Email</label>
-            <input name="email" value={contacts.email} onChange={handleInput} className="form-control" placeholder="Example: siyabonga@gmail.com"/>
-        
-            <label className="form-label">Home Contact</label>
-            <input name="home" value={contacts.home} onChange={handleInput} className="form-control" placeholder="Example: 073 789 9980"/>   
+             <div className="row">
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Mobile No</label>
+                    <input name="mobileNo" value={contacts.mobileNo} onChange={handleInput}  className="form-control" placeholder="Example: 072 588 2344"/>
+                </div>
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Alternative</label>
+                    <input name="alternative" value={contacts.alternative} onChange={handleInput} className="form-control" placeholder="Example: 066 576 9906"/>
+                </div>
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Home Contact</label>
+                    <input name="home" value={contacts.home} onChange={handleInput} className="form-control" placeholder="Example: 073 789 9980"/>   
+                </div>
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Email</label>
+                    <input name="email" value={contacts.email} onChange={handleInput} className="form-control" placeholder="Example: siyabonga@gmail.com"/>
+                </div>
+            </div>
         </InputsContainer>
     );
 }

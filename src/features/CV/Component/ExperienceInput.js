@@ -74,17 +74,27 @@ export default function ExperienceInput({saveExperiences,removeExperience})
                 }
             </div>
             <hr/>
-            <div className="mt-2">
-                <label className="form-label">Company Name</label>
-                <input name="companyName" type="text" value={experience.companyName} className="form-control" onChange={inputHandler}/>
-                <label className="form-label">Position</label>
-                <input name="position" type="text" value={experience.position} className="form-control" onChange={inputHandler}/>
-                <label className="form-label">StartDate</label>
-                <input name="startDate" type="date" value={experience.startDate} className="form-control" onChange={inputHandler}/>
-                <label className="form-label">End Date</label>
-                <input name="endDate" type="date" value={experience.endDate} className="form-control" onChange={inputHandler}/>
-                <label className="form-label">Reason of Leaving</label>
-                <input name="reason" type="text" value={experience.reason} className="form-control" onChange={inputHandler}/>
+            <div className="row">
+                <div className="col-12 col-lg-4">
+                    <label className="form-label">Company Name</label>
+                    <input name="companyName" type="text" value={experience.companyName} className="form-control" onChange={inputHandler}/>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <label className="form-label">Position</label>
+                    <input name="position" type="text" value={experience.position} className="form-control" onChange={inputHandler}/>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <label className="form-label">Start Date</label>
+                    <input name="startDate" type="date" value={experience.startDate} className="form-control" onChange={inputHandler}/>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <label className="form-label">End Date</label>
+                    <input name="endDate" type="date" value={experience.endDate} className="form-control" onChange={inputHandler}/>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <label className="form-label">Reason of Leaving</label>
+                    <input name="reason" type="text" value={experience.reason} className="form-control" onChange={inputHandler}/>
+                </div>
             </div>
         </InputsContainer>
     )

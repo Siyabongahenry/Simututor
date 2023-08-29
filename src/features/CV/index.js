@@ -68,7 +68,7 @@ export default function Index()
            }
 
     },[]);
-
+    
     //objects for update functions
     const saveChanges={
         personalInfo:savePersonalInfo,

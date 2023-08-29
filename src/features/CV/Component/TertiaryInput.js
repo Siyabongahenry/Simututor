@@ -58,21 +58,19 @@ export default function TertiaryInput({saveTertiaryEdu,removeTertiaryEdu})
                     )
                 }
             </div>
-            <div>
-                <label className="formLabel">Institution Name</label>
-                <input name="instituteName" className="form-control" onChange={handleInput}/>
-            </div>
-            <div>
-                <label className="formLabel">Programme/Course Name</label>
-                <input name="course" className="form-control" onChange={handleInput}/>
-            </div>
-            <div>
-                <label className="formLabel">From</label>
-                <input name="startDate" type="date" className="form-control" onChange={handleInput}/>
-            </div>
-            <div>
-                <label className="formLabel">To</label>
-                <input name="endDate" type="date" className="form-control"  onChange={handleInput}/>
+            <div className="row">
+                <div className="col-12 col-lg-4">
+                    <label className="formLabel">Institution Name</label>
+                    <input name="instituteName" className="form-control" onChange={handleInput}/>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <label className="formLabel">Programme/Course Name</label>
+                    <input name="course" className="form-control" onChange={handleInput}/>
+                </div>
+                <div className="col-12 col-lg-4">
+                    <label className="formLabel">Year Of Completion</label>
+                    <input name="endDate" type="date" className="form-control"  onChange={handleInput}/>
+                </div>
             </div>
         </InputsContainer>
     )

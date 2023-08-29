@@ -69,15 +69,23 @@ export default function ReferencesInput({saveReferences,removeReference})
                 )
             }
             <hr/>
-            <div className="mt-2">
-                <label className="form-label">Company Name</label>
-                <input name="companyName" value={reference.companyName} onChange={handleInput} className="form-control" placeholder="Company Name"/>
-                <label className="form-label">Person Names</label>
-                <input name="personName"  value={reference.personName} onChange={handleInput} className="form-control" placeholder="Person Name"/>
-                <label className="form-label">Person postion</label>
-                <input name="personPosition" value={reference.personPosition} onChange={handleInput} className="form-control" placeholder="Person Position"/>
-                <label className="form-label">Person Contact</label>
-                <input name="personContact" value={reference.personContact} onChange={handleInput} className="form-control" placeholder="Person Contact"/>
+            <div className="row">
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Company Name</label>
+                    <input name="companyName" value={reference.companyName} onChange={handleInput} className="form-control" placeholder="Company Name"/>
+                </div>
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Person Names</label>
+                    <input name="personName"  value={reference.personName} onChange={handleInput} className="form-control" placeholder="Person Name"/>
+                </div>
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Person postion</label>
+                    <input name="personPosition" value={reference.personPosition} onChange={handleInput} className="form-control" placeholder="Person Position"/>
+                </div>
+                <div className="col-12 col-lg-6">
+                    <label className="form-label">Person Contact</label>
+                    <input name="personContact" value={reference.personContact} onChange={handleInput} className="form-control" placeholder="Person Contact"/>
+                </div>
             </div>
         </InputsContainer>
     )

@@ -29,6 +29,14 @@ export default function CreateCV({cvOwnerDetails,saveTheme})
         overflowY:"hidden",
     }
 
+    const[requestStatus,setRequestStatus] = useState(
+        {
+            loading:false,
+            data:"",
+            error:""
+        }
+    )
+
     useEffect(()=>{
 
         if(cvOwnerDetails.theme)
@@ -41,6 +49,24 @@ export default function CreateCV({cvOwnerDetails,saveTheme})
         }
     },[cvOwnerDetails.theme]);
 
+    const orderHardCopy = async ()=>{
+
+        try
+        {  
+            const response = await fetch("http://localhost:5000/api/printing/cv",{
+                    method:"post",
+                    headers: {
+                        'content-type': 'application/X-www-form-urlencoded'
+                   },       
+                    body:JSON.stringify(cvOwnerDetails),
+                    mode:"no-cors"
+            });
+        }
+        catch{
+            
+        }
+    }
+
     const handleInput = (e)=>{
         
         setStyles({...styles,[e.target.name]:e.target.value});
@@ -52,6 +78,7 @@ export default function CreateCV({cvOwnerDetails,saveTheme})
         <ThemeContext.Provider value={styles.backgroundColor}>
             <div>
                 <div className="p-2 text-center">
+                   
                     <div>
                         <SavingInfoBox/>
                     </div>
@@ -59,9 +86,18 @@ export default function CreateCV({cvOwnerDetails,saveTheme})
                         trigger={()=><button className="btn btn-primary"><FaPrint/>&nbsp;Save My CV</button>}
                         content={()=>cvTemplateRef}>
                     </ReactToPrint>
+                   
                     <div className="text-theme p-2">
                         Theme Color:&nbsp;  
-                        <input name="backgroundColor" type="color" value={styles.backgroundColor} onChange={handleInput}/>
+                        <input name="backgroundColor" type="color" list="presets" value={styles.backgroundColor} onChange={handleInput}/>
+                        <datalist id="presets">
+                            <option value="#015289">Original</option>
+                            <option value="#cccccc">Grey</option>
+                            <option value="#000000">Black</option>
+                            <option value="#023020">Dark Green</option>
+                            <option value="#301934">Dark Purple</option>
+                            <option value="#6699cc">Blue</option>
+                        </datalist>
                     </div>
                 </div>
                 <div style={{overflowX:"scroll"}}>
