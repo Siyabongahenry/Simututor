@@ -45,8 +45,23 @@ export default function PersonalInfoInput({savePersonalInfo})
 
     },[_personalInfo]);
 
+    const autoSetDateOfBirth=(id)=>{
+          if(id.length ===13)
+          {
+            let yearOfBirth = id.substr(0,2);
+                yearOfBirth = yearOfBirth > 58 && yearOfBirth <= 99?
+                "19"+yearOfBirth:"20"+yearOfBirth;
+            let monthOfBirth = id.substr(2,2);
+            let dayOfBirth = id.substr(4,2);
+
+            let dateOfBirth = yearOfBirth +"-"+monthOfBirth+"-"+dayOfBirth;
+            setPersonalInfo(prev=>({...prev,dateOfBirth}));
+          }
+
+    }
+
     const handleInput=(e)=>{
-      setPersonalInfo({...personalInfo,[e.target.name]:e.target.value});
+      setPersonalInfo(prev=>({...prev,[e.target.name]:e.target.value}));
     }
     return(
         <InputsContainer icon={<FaUserCircle/>} headerText="Personal Information" savefunc={()=>{savePersonalInfo(personalInfo)}}>
@@ -65,7 +80,7 @@ export default function PersonalInfoInput({savePersonalInfo})
                </div>
                <div className="col-12 col-lg-4">
                   <label className="form-label">Identity</label>
-                  <input name="identity"  value={personalInfo.identity} onChange={handleInput}  className="form-control" placeholder="ID Number"/>
+                  <input name="identity"  value={personalInfo.identity} onChange={(e)=>{handleInput(e);autoSetDateOfBirth(e.target.value);}}  className="form-control" placeholder="ID Number"/>
                </div>
                <div className="col-12 col-lg-4">
                   <label className="form-label">Date of Birth</label>

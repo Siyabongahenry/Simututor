@@ -13,7 +13,7 @@ export default function OutputTemplate({cvOwnerDetails,styles})
 
     return(
         <>
-            <div style={{...styles,height:"297mm",marginTop:"0"}}>           
+            <div style={{...styles,height:"297mm"}}>           
                 <CVHeader names={personalInfo.firstName+" "+personalInfo.lastName} 
                     address={address} 
                     contacts={contacts}/>
