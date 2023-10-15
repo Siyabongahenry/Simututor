@@ -14,6 +14,8 @@ export default function PersonalInfoInput({savePersonalInfo})
       lastName:"",
       identity:"",
       dateOfBirth:"",
+      gender:"",
+      age:"",
       citizenship:"South African",
       taxNumber:"",
       contacts:{
@@ -46,7 +48,7 @@ export default function PersonalInfoInput({savePersonalInfo})
     },[_personalInfo]);
 
     const autoSetDateOfBirth=(id)=>{
-          if(id.length ===13)
+          if(id.length ===10)
           {
             let yearOfBirth = id.substr(0,2);
                 yearOfBirth = yearOfBirth > 58 && yearOfBirth <= 99?
@@ -55,7 +57,12 @@ export default function PersonalInfoInput({savePersonalInfo})
             let dayOfBirth = id.substr(4,2);
 
             let dateOfBirth = yearOfBirth +"-"+monthOfBirth+"-"+dayOfBirth;
-            setPersonalInfo(prev=>({...prev,dateOfBirth}));
+
+            let gender =parseInt(id.substr(6,4))>4999?"Male":"Female";
+
+            let age =new Date().getFullYear()-parseInt(yearOfBirth);
+
+            setPersonalInfo(prev=>({...prev,dateOfBirth,gender,age}));
           }
 
     }
@@ -81,6 +88,9 @@ export default function PersonalInfoInput({savePersonalInfo})
                <div className="col-12 col-lg-4">
                   <label className="form-label">Identity</label>
                   <input name="identity"  value={personalInfo.identity} onChange={(e)=>{handleInput(e);autoSetDateOfBirth(e.target.value);}}  className="form-control" placeholder="ID Number"/>
+                  <div>
+                     Age: {personalInfo.age}, Gender: {personalInfo.gender}
+                  </div>
                </div>
                <div className="col-12 col-lg-4">
                   <label className="form-label">Date of Birth</label>

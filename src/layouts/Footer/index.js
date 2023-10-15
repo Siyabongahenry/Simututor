@@ -6,9 +6,6 @@ export default function Footer()
         <footer className="text-theme text-center p-2 border-top"> 
             <h4>Contacts</h4>  
             <div className="p-2">
-                <a style={{textDecoration:"none"}} className="text-theme" href="tel:+27664118179">&nbsp;<FaWhatsapp/>+27 66 411 8179</a>
-            </div>
-            <div className="p-2">
                 <a style={{textDecoration:"none"}}  className="text-theme" href="mailto:admin@simututors.com"><FaEnvelope/>&nbsp;admin@simututors.com</a>
             </div> 
             <div className="text-center text-theme">

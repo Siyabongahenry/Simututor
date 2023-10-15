@@ -1,6 +1,6 @@
 import "./sidebar.css";
 import{NavLink} from "react-router-dom";
-import {FaHome,FaCalculator, FaInfoCircle, FaFlask, FaRocket, FaUniversity, FaFile, FaPhotoVideo} from "react-icons/fa";
+import {FaHome,FaCalculator, FaInfoCircle, FaUniversity, FaFile, FaPhotoVideo} from "react-icons/fa";
 
 export default function Sidebar({displayClass,hide=f=>f})
 {
@@ -37,7 +37,7 @@ export default function Sidebar({displayClass,hide=f=>f})
             icon:<FaPhotoVideo className="text-theme"/>,
             children:[]
         },*/
-        {
+        /*{
             name:"Mathematics",
             to:"/mathematics",
             icon:<FaCalculator className="text-info"/>,
@@ -56,6 +56,13 @@ export default function Sidebar({displayClass,hide=f=>f})
             children:[]
         }
         ,*/
+        {
+            name:"Multi-Calculator",
+            to:"/multicalculator",
+            icon:<FaCalculator/>,
+            children:[]
+        }
+        ,
         {
             name:"About",
             to:"/about",

@@ -10,6 +10,8 @@ import UniApplicationPage from "../pages/UniApplicationPage";
 import CV from "../features/CV";
 import Letter from "../features/Letter";
 import PhotoShoot from "../features/PhotoShoot";
+import MultiCalculator from "../features/MultiCalculator";
+import HRAdmin from "../features/HRAdmin";
 
 export default function PublicRoute()
 {
@@ -86,6 +88,16 @@ export default function PublicRoute()
         {
             path:"/about/*",
             element:<AboutPage/>,
+            childrens:[]
+        },
+        {
+            path:"/multicalculator/*",
+            element:<MultiCalculator/>,
+            childrens:[]
+        },
+        {
+            path:"/hr/",
+            element:<HRAdmin/>,
             childrens:[]
         }
 

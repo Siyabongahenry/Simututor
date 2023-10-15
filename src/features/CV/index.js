@@ -5,6 +5,8 @@ import InputTemplate from "./Component/InputTemplate";
 export const CVOwnerContext = createContext();
 export default function Index()
 {
+    const[cvList,setList] = useState([]);
+
     const[cvOwnerDetails,setCVOwnerDetails] = useState(
         {
             personalInfo:{
@@ -61,10 +63,12 @@ export default function Index()
 
     useEffect(()=>{
            const userDetails =JSON.parse(localStorage.getItem("userDetails"));
+           //const cvList = JSON.parse(localStorage.getItem("cvList"));
 
            if(userDetails)
            {
                 setCVOwnerDetails(userDetails);
+                //setCVOwnerDetails(cvList.pop());
            }
 
     },[]);
@@ -89,6 +93,10 @@ export default function Index()
     function updateCvOwnerDetails(newDetails)
     {
         setCVOwnerDetails(newDetails);
+
+        //cvList.push(newDetails)
+        //localStorage.setItem("cvList",JSON.stringify(cvList));
+
         localStorage.setItem("userDetails",JSON.stringify(newDetails));
     }
 
