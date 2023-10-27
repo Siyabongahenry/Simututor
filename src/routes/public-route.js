@@ -12,6 +12,7 @@ import Letter from "../features/Letter";
 import PhotoShoot from "../features/PhotoShoot";
 import MultiCalculator from "../features/MultiCalculator";
 import HRAdmin from "../features/HRAdmin";
+import OneHourFinance from "../features/OneHourFinance";
 
 export default function PublicRoute()
 {

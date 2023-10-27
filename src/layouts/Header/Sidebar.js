@@ -1,6 +1,6 @@
 import "./sidebar.css";
 import{NavLink} from "react-router-dom";
-import {FaHome,FaCalculator, FaInfoCircle, FaUniversity, FaFile, FaPhotoVideo} from "react-icons/fa";
+import {FaHome,FaCalculator, FaInfoCircle, FaUniversity, FaFile, FaPhotoVideo, FaBook} from "react-icons/fa";
 
 export default function Sidebar({displayClass,hide=f=>f})
 {
@@ -28,6 +28,12 @@ export default function Sidebar({displayClass,hide=f=>f})
             name:"Create My Formal Letter",
             to:"/letter",
             icon:<FaFile className="text-info"/>,
+            children:[]
+        },
+        {
+            name:"HR ADMIN",
+            to:"/hr",
+            icon:<FaBook className="text-info"/>,
             children:[]
         },
         /*

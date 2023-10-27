@@ -1,5 +1,4 @@
 import TimeCalculator from "./Component/TimeCalculatos";
-import IdInfoExtractor from "./Component/IdInfoExtractor";
 import { useState } from "react";
 const MultiCalculator = ()=>{
     const[links,setLinks] =useState([
@@ -7,11 +6,6 @@ const MultiCalculator = ()=>{
             name:"Time Calculator",
             element:<TimeCalculator/>,
             selected:true
-        },
-        {
-            name:"Id Info Extractor",
-            element:<IdInfoExtractor/>,
-            selected:false
         }
     ]);
 

@@ -1,5 +1,4 @@
 import { FaCheckDouble, FaCopy, FaTimes } from "react-icons/fa";
-import CalculatorSection from "./CalculatorSection";
 import { useReducer, useState } from "react";
 import { getGender,getDateOfBirth,getCitizenship,getAge } from "../../../utils/saIdInfoExtractor";
 import copy from "copy-to-clipboard";
@@ -40,11 +39,12 @@ const IdInfoExtractor =()=>{
     }
 
     return (
-        <CalculatorSection name="Extract Id Info">
+
             <div>
+                <h3 className="text-white text-center">Extract Id Information</h3>
                 <div className="row">
                     <div className="col-12 col-lg-4">
-                        <label className="fw-bold form-label">Id Number</label>
+                        <label className="fw-bold form-label text-theme">Id Number</label>
                         <div className="input-group">  
                             <input value={id} name="userId" onChange={handleInput}  className="form-control" placeholder="e.g 7808016761088"/>                 
                             <button onClick={copyToClipboard}><FaCopy/></button>
@@ -63,7 +63,7 @@ const IdInfoExtractor =()=>{
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th></th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -88,7 +88,6 @@ const IdInfoExtractor =()=>{
                     </div>
                 </div>
             </div>
-        </CalculatorSection>
     );
 }
 
