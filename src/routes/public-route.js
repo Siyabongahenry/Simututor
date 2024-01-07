@@ -12,7 +12,8 @@ import Letter from "../features/Letter";
 import PhotoShoot from "../features/PhotoShoot";
 import MultiCalculator from "../features/MultiCalculator";
 import HRAdmin from "../features/HRAdmin";
-import OneHourFinance from "../features/OneHourFinance";
+import CollegeApp from "../features/collegeApp";
+import BookingForm from "../features/PhotoShoot/Component/BookingForm";
 
 export default function PublicRoute()
 {
@@ -26,6 +27,11 @@ export default function PublicRoute()
     
             path:"/university",
             element:<UniApplicationPage/>,
+            childrens:[]
+        },
+        {
+            path:"/college",
+            element:<CollegeApp/>,
             childrens:[]
         }
         ,
@@ -99,6 +105,11 @@ export default function PublicRoute()
         {
             path:"/hr/",
             element:<HRAdmin/>,
+            childrens:[]
+        },
+        {
+            path:"/photoshoot/bookings/*",
+            element:<BookingForm/>,
             childrens:[]
         }
 

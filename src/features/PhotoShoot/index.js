@@ -4,6 +4,7 @@ import Items from "./Component/Items";
 const PhotoShoot = ()=>{
     const[items,setItems] = useState([
         {
+            id:0,
             name:"Videoshoot",
             hours:1,
             originalCost:146.5,
@@ -11,6 +12,7 @@ const PhotoShoot = ()=>{
             photographer:"Phillo",
         },
         {
+            id:1,
             name:"Photoshoot",
             hours:1,
             originalCost:245.5,

@@ -1,16 +1,12 @@
 import { useState } from "react";
 import { FaCamera, FaMinus, FaPlus, FaTimes } from "react-icons/fa";
-import BookingForm from "./BookingForm";
 import { priceFormat } from "../../../utils/formatCurrency";
 import CameraImage from "./camera-man2.jpg";
 import VideoCameraImage from "./camera-man.jpg";
+import{NavLink} from "react-router-dom";
 
 const Item =({item,incHours,decHours})=>{
-    const[bookindFormTogler,setBookingFormToddle] = useState(false);
 
-    const closeForm = ()=>{
-        setBookingFormToddle(false);
-    }
     return(      
         <div className="bg-white p-2 border rounded">
             <h2>{item.name} </h2>
@@ -31,20 +27,9 @@ const Item =({item,incHours,decHours})=>{
             <div>
                 Cost:&nbsp;{priceFormat(item.cost)}
             </div> 
-            {
-                bookindFormTogler 
-                && 
-                <div className="border p-2">
-                    <div className="text-end">
-                        <FaTimes className="text-danger" onClick={()=>{setBookingFormToddle(false)}}/>
-                    </div>
-                    <BookingForm item={item} closeForm={closeForm}/>
-                </div>
-            }
             {     
-                !bookindFormTogler &&
                 <div className="text-center p-2">
-                    <button onClick={()=>{setBookingFormToddle(true)}} className="btn btn-secondary">Book Now</button>
+                    <NavLink to={`bookings/id=${item.id}`} className="btn btn-secondary">Book Now</NavLink>
                 </div>      
             }
         </div>

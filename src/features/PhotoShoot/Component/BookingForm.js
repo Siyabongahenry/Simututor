@@ -2,7 +2,7 @@ import "./booking-form.css";
 import { useState } from "react";
 import { FaCalendar, FaCalendarDay, FaClock, FaMapMarker, FaPhone, FaWhatsapp } from "react-icons/fa";
 import { priceFormat } from "../../../utils/formatCurrency";
-const BookingForm = ({item,closeForm})=>{
+const BookingForm = ({id,item={}})=>{
 
     const bookingInfo = useState({
         FirstName:"",
@@ -67,7 +67,7 @@ const BookingForm = ({item,closeForm})=>{
                     <input name="time" type="time" className="form-control"/>
                 </div>
                 <div className="p-2 overflow-auto">
-                    <button onClick={closeForm} className="btn btn-danger float-start">Cancel</button><button className="btn btn-success float-end">Submit</button>
+                    <button className="btn btn-danger float-start">Cancel</button><button className="btn btn-success float-end">Submit</button>
                 </div>
             </div>
         </section>

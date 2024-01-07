@@ -19,7 +19,7 @@ export default function CVHeader({names,contacts={},address={}})
     return(
         <div style={{overflow:"auto"}}>
             <div style={headerStyles}> 
-                <h1>Curriculum Vitae <br/>of<br/>{names}</h1>
+                <h1>{names}</h1>
             </div>
             <div style={addressStyles}>
                 <address  style={{borderBottom:"1px solid black"}}>

@@ -18,6 +18,12 @@ export default function Sidebar({displayClass,hide=f=>f})
             children:[]
         },
         {
+            name:"College Applications",
+            to:"/college",
+            icon:<FaUniversity  className="text-info"/>,
+            children:[]
+        },
+        {
             name:"Create My CV",
             to:"/cv",
             icon:<FaFile className="text-info"/>,
@@ -30,6 +36,7 @@ export default function Sidebar({displayClass,hide=f=>f})
             icon:<FaFile className="text-info"/>,
             children:[]
         },
+        /*
         {
             name:"HR ADMIN",
             to:"/hr",

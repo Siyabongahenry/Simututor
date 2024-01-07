@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {FaAngleDown,FaAngleUp, FaInfoCircle,FaUniversity} from "react-icons/fa";
+import {FaAngleDown,FaAngleUp, FaComment,FaInfoCircle,FaMobile,FaUniversity} from "react-icons/fa";
 
 export default function University({uni})
 {
@@ -42,14 +42,12 @@ export default function University({uni})
                 </table>
             }
             <p className="text-center">
-                {
-                    uni.isOpen?<b className="text-success">Open for applications</b>:
-                    <b className="text-danger">Closed for Applications(You can check their website to confirm)</b>
-                }
+                <a className="btn btn-primary" href={uni.link} target="_blank" rel="noopener noreferrer"><FaMobile/>&nbsp;Apply</a>
             </p>
             <p className="text-center">
-                <a className="btn btn-primary" href={uni.link} target="_blank" rel="noopener noreferrer">Apply at the {uni.name}</a>
-            </p>       
+               <button className="btn btn-secondary"><FaComment/>&nbsp;Assist with my applications</button>
+            </p>
+            
         </section>
     )
 }
