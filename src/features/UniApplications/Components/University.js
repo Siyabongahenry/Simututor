@@ -1,9 +1,11 @@
 import { useState } from "react";
 import {FaAngleDown,FaAngleUp, FaComment,FaInfoCircle,FaMobile,FaUniversity} from "react-icons/fa";
+import ApplicantHelper from "./ApplicantHelper";
 
 export default function University({uni})
 {
     const[showDetails,setShowDetails] = useState(false);
+    const[showHelper,setHelper] = useState(false);
     return(
         <section className="p-2 bg-white mt-2">
             <h2 className="text-center bg-theme text-theme p-2"><FaUniversity/>&nbsp;{uni.name}</h2>
@@ -45,8 +47,9 @@ export default function University({uni})
                 <a className="btn btn-primary" href={uni.link} target="_blank" rel="noopener noreferrer"><FaMobile/>&nbsp;Apply</a>
             </p>
             <p className="text-center">
-               <button className="btn btn-secondary"><FaComment/>&nbsp;Assist with my applications</button>
+               <button className="btn btn-secondary" onClick={()=>{setHelper(!showHelper)}}><FaComment/>&nbsp;Assist with my applications</button>
             </p>
+            {showHelper && <ApplicantHelper hideHelper={setHelper}/>}
             
         </section>
     )

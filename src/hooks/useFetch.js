@@ -1,13 +1,22 @@
-export const usePost = async(url,content)=>{
+import { useEffect, useState } from "react";
 
-    const response = await useFetch("http:localhost:5000/api"+url,{
-        method:"POST",
-        headers:{
-            contentType:""
-        },
-        body:JSON.stringify(content)
-    });
+export const useFetch = async(url)=>{
 
+    const[data,setData] = useState();
+    const[error,setError] = useState();
+    const[loading,setLoading] =useState();
 
-    return response.JSON();
+    useEffect(()=>{
+
+        if(!url) return;
+
+        fetch(url)
+        .then(data=>data.json())
+        .then(setData)
+        .then(()=>setLoading(false))
+        .catch(setError)
+
+    },[url])
+
+    return {loading,data,error};
 }
