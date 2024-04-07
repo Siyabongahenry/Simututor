@@ -79,7 +79,7 @@ const TimeCalculator = ()=>{
         <CalculatorSection name="Time Calculator" icon={<FaCalculator/>}>
             <div className="bg-white text-center">
                 <section>
-                    <h4 className="bg-light p-1">Actual Time</h4>
+                    <h4 className="bg-light p-1">Company Time</h4>
                     <div className="d-inline-block p-2">
                         <label>Start Time</label>
                         <div>
