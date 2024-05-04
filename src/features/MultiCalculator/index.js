@@ -1,10 +1,10 @@
-import TimeCalculator from "./Component/TimeCalculatos";
+import HoursCalculator from "./Component/HoursCalculator";
 import { useState } from "react";
 const MultiCalculator = ()=>{
     const[links,setLinks] =useState([
         {
-            name:"Time Calculator",
-            element:<TimeCalculator/>,
+            name:"HOURS CALCULATOR",
+            element:<HoursCalculator/>,
             selected:true
         }
     ]);

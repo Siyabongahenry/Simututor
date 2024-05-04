@@ -1,0 +1,6 @@
+.time-input,.time-input-error{
+    width:80px;
+}
+.time-input-error{
+    color:red;
+}

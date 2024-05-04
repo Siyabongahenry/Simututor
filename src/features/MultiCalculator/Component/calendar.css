@@ -1,0 +1,39 @@
+.calendar table, .calendar table td,.calendar table th{
+    border:1px solid black;
+    font-weight:bold;
+    font-size: 12px;
+}
+.calendar td{
+    position:relative;
+}
+.calendar .badge-month, .calendar .badge-year{
+    position:absolute;
+    right:0;
+    font-size:6px;
+    padding:1px;
+    font-weight: normal;
+}
+.calendar .badge-month{
+    top:0;
+}
+.calendar .badge-year{
+    bottom:0;
+}
+
+.calendar table th{
+    color:black;
+    background-color:lightblue;
+}
+
+.calendar table td,.calendar table th{
+    padding:4px;
+}
+
+.bg-saturday, .bg-sunday{
+    background-color:lightgrey;
+}
+
+.bg-holiday{
+    background-color:red;
+    color:white;
+}

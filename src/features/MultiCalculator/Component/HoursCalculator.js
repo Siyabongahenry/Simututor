@@ -1,14 +1,17 @@
+import "./hours-calculator.css";
 import { useReducer} from "react";
 import CalculatorSection from "./CalculatorSection";
 import { FaCalculator } from "react-icons/fa";
-const TimeCalculator = ()=>{
+import MonthHours from "./MonthHours";
+const HoursCalculator = ()=>{
 
     const[timeData,dispatch] = useReducer(reducerFuc,{
         actualStartTime:"00:00",
         actualEndTime:"00:00",
         startTime:"00:00",
         endTime:"00:00",
-        breakDuration:"00:00",
+        breakDurationMM:0,
+        breakDurationHH:0,
         actualStartTimeInH:0,
         actualEndTimeInH:0,
         actualTotalTimeInH:0,
@@ -18,6 +21,7 @@ const TimeCalculator = ()=>{
         breakInHours:0,
         normalHours:0,
         extraHours:0,
+        error:false
     });
 
     function reducerFuc(state,action){
@@ -26,7 +30,7 @@ const TimeCalculator = ()=>{
         {
             case "INPUT_HANDLER":
                 return {...state,...action.fields}
-
+                
             default:
                  return state;
 
@@ -37,7 +41,9 @@ const TimeCalculator = ()=>{
     const calcHours=()=>{
         const actualStartTimeInH = convertTimeToHours(timeData.actualStartTime);
         const actualEndTimeInH = convertTimeToHours(timeData.actualEndTime);
-        const breakInHours = convertTimeToHours(timeData.breakDuration);
+        const breakInHours =parseFloat(timeData.breakDurationHH) + parseFloat(timeData.breakDurationMM/60);
+
+        
         const actualTotalTimeInH = actualEndTimeInH - actualStartTimeInH - breakInHours;
 
         const startTimeInHours = convertTimeToHours(timeData.startTime);
@@ -70,53 +76,87 @@ const TimeCalculator = ()=>{
         let timeInHours = parseFloat(time.substr(0,2))+parseFloat(time.substr(3,2))/60
         return  timeInHours;
     }
+
+    const modifyTimeValue=(e)=>{
+         let value = e.target.value;
+
+         value = value.replaceAll(" ","");
+
+         if(isNaN(value.substr(0,2) || (value.indexOf(":") < 0 && isNaN(value)) )) return;
+
+         value = value.length === 0?"00:00":value.length === 1?"0"+value+":00":value;
+
+         if(value.indexOf(":") < 0)
+         {
+            value =value.length<=2?value.substr(0,2)+":00":value.substr(0,2)+":"+value.substr(2,2);
+         }
+
+         if(isNaN(value.substr(0,2)))
+         dispatch({type:"INPUT_HANDLER",fields:{[e.target.name]:value}})
+    }
  
     const handleInput =(e)=>{
         dispatch({type:"INPUT_HANDLER",fields:{[e.target.name]:e.target.value}})
     }
 
     return(
-        <CalculatorSection name="Time Calculator" icon={<FaCalculator/>}>
-            <div className="bg-white text-center">
-                <section>
-                    <h4 className="bg-light p-1">Company Time</h4>
-                    <div className="d-inline-block p-2">
-                        <label>Start Time</label>
-                        <div>
-                            <input  type="time" name="actualStartTime" value={timeData.actualStartTime} onChange={handleInput}/>
+        <CalculatorSection name="HOURS CALCULATOR" icon={<FaCalculator/>}>
+            <div className="bg-white">
+
+                <MonthHours/>
+                <section className="text-center">
+                    <h4 className="bg-light p-1">COMPANY TIME</h4>
+                    <div className="row text-center">
+                        <div className="col-12 col-lg-6 p-2">
+                            <h6>OPERATION HOURS</h6>
+                            <div className="d-inline-block m-1">
+                                <label>START</label>
+                                <div>
+                                    <input  type="text" name="actualStartTime" value={timeData.actualStartTime} onChange={handleInput} onBlur={modifyTimeValue} className="time-input"/>
+                                </div>
+                            </div>
+                            <div className="d-inline-block m-1">
+                                <label>END</label>
+                                <div>
+                                    <input  type="text" name="actualEndTime" value={timeData.actualEndTime} onChange={handleInput} onBlur={modifyTimeValue} className="time-input"/>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="d-inline-block p-2">
-                        <label>End Time</label>
-                        <div>
-                            <input  type="time" name="actualEndTime" value={timeData.actualEndTime} onChange={handleInput}/>
-                        </div>
-                    </div>
-                    <div className="d-inline-block p-2">
-                        <label>Break Length</label>
-                        <div>
-                            <input type="time" name="breakDuration" value={timeData.breakDuration}  onChange={handleInput} />
+                        <div className="col-12 col-lg-6 p-2">
+                            <h6>BREAK DURATION</h6>   
+                            <div className="d-inline-block m-1"> 
+                                <label>
+                                    HOURS<br/>
+                                    <input  name="breakDurationHH" value={timeData.breakDurationHH}  onChange={handleInput} className="time-input" type="number" min={0}/>                
+                                </label>
+                            </div>
+                            <div className="d-inline-block m-1">
+                                <label>
+                                    MINUTES<br/>
+                                    <input name="breakDurationMM" value={timeData.breakDurationMM}  onChange={handleInput} className="time-input" type="number" min={0} max={59}/>
+                                </label>
+                            </div>
                         </div>
                     </div>
                     <div className="p-2 text-center">
                         Normal Hours: {timeData.actualTotalTimeInH}
                     </div>
                 </section>
-                <section>
-                    <h4 className="bg-light p-1">Recorded time</h4>
+                <section className="text-center">
+                    <h4 className="bg-light p-1">EMPLOYEE TIME</h4>
                     <section className="row">
                         <section className="col-12 col-md-6">
-                            <h6>Time</h6>
+                            <h6>CLOCKING TIME</h6>
                             <div className="d-inline-block p-2">
-                                <label>Start Time</label>
+                                <label>IN</label>
                                 <div>
-                                    <input  type="time" name="startTime" value={timeData.startTime} onChange={handleInput}/>
+                                    <input  type="text" name="startTime" value={timeData.startTime}  onChange={handleInput} onBlur={modifyTimeValue} className="time-input"/>
                                 </div>
                             </div>
                             <div className="d-inline-block p-2">
-                                <label>End Time</label>
+                                <label>OUT</label>
                                 <div>
-                                    <input  type="time" name="endTime" value={timeData.endTime}  onChange={handleInput}/>
+                                    <input  type="text" name="endTime" value={timeData.endTime}  onChange={handleInput} onBlur={modifyTimeValue}  className="time-input"/>
                                 </div>
                             </div>
                             <div className="p-2">
@@ -124,7 +164,7 @@ const TimeCalculator = ()=>{
                             </div>  
                         </section> 
                         <section className="col-12 col-md-6 text-start">
-                            <h6>Calculated Hours</h6>
+                            <h6>CALCULATED HOURS</h6>
                             <table className="table table-striped">
                                 <thead>                            
                                     <tr>
@@ -140,7 +180,7 @@ const TimeCalculator = ()=>{
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td> Extra Hours</td>
+                                        <td>Excess Hours</td>
                                         <td>
                                             <span className="text-success">{timeData.extraHours}</span>
                                         </td>
@@ -159,4 +199,4 @@ const TimeCalculator = ()=>{
     )
 }
 
-export default TimeCalculator;
+export default HoursCalculator;
