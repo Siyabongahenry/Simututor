@@ -31,9 +31,8 @@ const ControlledCalendar = ({dates,isHoliday})=>{
               let date = _dates.shift();
 
               if(date === null)
-         
-               {
-                cols.push(<td key={date+i+""+j}></td>);
+              {
+                cols.push(<td className={(j===0 || j===6)?"bg-light":""} key={date+i+""+j}></td>);
               }
               else
               {
@@ -68,13 +67,13 @@ const ControlledCalendar = ({dates,isHoliday})=>{
             <table className="table text-center">
                 <thead>
                     <tr>
-                        <th>Sunday</th>
-                        <th>Monday</th>
-                        <th>Tuesday</th>
-                        <th>Wednesday</th>
-                        <th>Thursday</th>
-                        <th>Friday</th>
-                        <th>Saturday</th>
+                        <th>S</th>
+                        <th>M</th>
+                        <th>T</th>
+                        <th>W</th>
+                        <th>T</th>
+                        <th>F</th>
+                        <th>S</th>
                     </tr>
                 </thead>
                 <tbody>

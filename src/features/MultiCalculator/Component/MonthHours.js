@@ -271,9 +271,7 @@ const MonthHours = () => {
                         days.map((day,index)=>
                         <div className="d-inline-block p-2" key={index}>
                             <div className=""><small>{day}</small></div>
-                            <div className="">
-                              <input type="number" min={0} name={day.toLowerCase()+"_hours"} value={getHoursByIndex(index)} onChange={hoursInputHandler}/>
-                            </div>
+                            <input type="number" min={0} name={day.toLowerCase()+"_hours"} value={getHoursByIndex(index)} onChange={hoursInputHandler} style={{width:"80px"}}/>
                         </div>
                         )
                       }
