@@ -74,13 +74,38 @@ const MonthHours = () => {
 
     let _dates = [];
          
-    for(let date = new Date(startDate.getTime());date <= endDate;date.setDate(date.getDate()+1)){
-        _dates.push(new Date(date.getTime()));
-    }
+    for(let date = new Date(startDate.getTime());datesLessThanOrEquals(date,endDate);date.setDate(date.getDate()+1)){
 
+        _dates.push(new Date(date.getTime()));
+            
+    }
 
     return _dates;
 }
+
+  const datesLessThanOrEquals=(date1,date2)=>{
+
+      const date1Year = date1.getFullYear();
+      const date2Year = date2.getFullYear();
+
+      const date1Month = date1.getMonth();
+      const date2Month = date2.getMonth();
+
+      const date1Day = date1.getDate();
+      const date2Day = date2.getDate();
+
+       if(date1Year > date2Year) return false;
+       if(date1Year < date2Year) return true;  
+
+      if(date1Month > date2Month) return false;
+      if(date1Month < date2Month) return true;
+   
+      if(date1Day > date2Day) return false;
+      if(date1Day < date2Day) return true;
+
+      return true;
+    
+  }
 
 
 
@@ -221,23 +246,21 @@ const MonthHours = () => {
 
  
   return (
-    <div className="container-fluid">
+    <div className="container-fluid bg-white">
           <div className="row">
             <div className="col-12 col-lg-6">
-              <div className="text-center p-2 border">
-                  <h6 className="text-center p-2 bg-light"> CALENDAR </h6>
-                  
+              <div className="text-center p-2 border"  style={{height:"100%"}}>
+                  <h6 className="text-center p-2 bg-light">VARIABLE CALENDAR</h6> 
                   <div className="p-2">
-                      <div className="d-inline-block">
+                      <div className="d-inline-block p-2">
                           <label>Start Date</label>&nbsp;
                           <input type="date" name="startDate" value={formatDate(state.dateRange.startDate)} onChange={dateRangeInputHandler}/>
                       </div>&nbsp;
-                      <div className="d-inline-block">
+                      <div className="d-inline-block p-2">
                           <label>End Date</label>&nbsp;
                           <input type="date" name="endDate" value={formatDate(state.dateRange.endDate)} onChange={dateRangeInputHandler}/>
                       </div>
                   </div>
-                  
                   <ControlledCalendar dates={getDates()} isHoliday={dateIsHoliday}/>
               </div>      
             </div>
@@ -279,16 +302,27 @@ const MonthHours = () => {
                         Exclude sundays
                       </label>
                     </p>
-                    <div className="p-2 text-center">
-                      <p className="fw-bold">Total Hours:&nbsp;</p>
-                      <div>
-                            <p className="d-inline-block display-6">
-                                {
-                                  calcTotalHours()
-                                }
-                            </p>
-                      </div>
-                      <p>Total working days:&nbsp;{getTotalDays()}</p>
+                    <div className="row text-center">
+                      <div className="col-6">
+                              <div className="p-2 m-1 bg-light border">
+                                <h6 className="fw-bold">Total Working Days:&nbsp;</h6>
+                                <p className="d-inline-block display-6">
+                                    {
+                                      getTotalDays()
+                                    }
+                                </p>
+                              </div>
+                        </div>
+                        <div className="col-6"  >
+                          <div className="p-2 m-1 bg-light border">
+                              <h6 className="fw-bold">Total Hours Worked:</h6>
+                              <p className="d-inline-block display-6">
+                                  {
+                                    calcTotalHours()
+                                  }
+                              </p>
+                            </div>
+                        </div>
                     </div>
                   </div>
             </div>

@@ -2,7 +2,6 @@ import "./hours-calculator.css";
 import { useReducer} from "react";
 import CalculatorSection from "./CalculatorSection";
 import { FaCalculator } from "react-icons/fa";
-import MonthHours from "./MonthHours";
 const HoursCalculator = ()=>{
 
     const[timeData,dispatch] = useReducer(reducerFuc,{
@@ -102,10 +101,8 @@ const HoursCalculator = ()=>{
     return(
         <CalculatorSection name="HOURS CALCULATOR" icon={<FaCalculator/>}>
             <div className="bg-white">
-
-                <MonthHours/>
                 <section className="text-center">
-                    <h4 className="bg-light p-1">COMPANY TIME</h4>
+                    <h2 className="bg-light p-1" style={{fontSize:"18px"}}>COMPANY TIME</h2>
                     <div className="row text-center">
                         <div className="col-12 col-lg-6 p-2">
                             <h6>OPERATION HOURS</h6>
@@ -143,7 +140,7 @@ const HoursCalculator = ()=>{
                     </div>
                 </section>
                 <section className="text-center">
-                    <h4 className="bg-light p-1">EMPLOYEE TIME</h4>
+                    <h2 className="bg-light p-1"  style={{fontSize:"18px"}}>EMPLOYEE TIME</h2>
                     <section className="row">
                         <section className="col-12 col-md-6">
                             <h6>CLOCKING TIME</h6>

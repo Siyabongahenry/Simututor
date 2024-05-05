@@ -7,7 +7,6 @@ const ControlledCalendar = ({dates,isHoliday})=>{
 
         let _dates = [...dates];
 
-
         if(_dates.length <= 0) return [];
 
         const firstDay = _dates[0].getDay();
@@ -64,27 +63,26 @@ const ControlledCalendar = ({dates,isHoliday})=>{
         return rows;
     }
 
-    return (
-        <div className="border p-2">
-            <div className="p-2 calendar">
-                <table className="table text-center">
-                    <thead>
-                        <tr>
-                            <th>Sunday</th>
-                            <th>Monday</th>
-                            <th>Tuesday</th>
-                            <th>Wednesday</th>
-                            <th>Thursday</th>
-                            <th>Friday</th>
-                            <th>Saturday</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {renderCalendar()}
-                    </tbody>
-                </table>
-            </div>       
-        </div>
+    return (   
+        <div className="p-2 calendar overflow-auto">
+            <table className="table text-center">
+                <thead>
+                    <tr>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {renderCalendar()}
+                </tbody>
+            </table>
+        </div>       
+      
     )
 }
 

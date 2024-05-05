@@ -1,12 +1,19 @@
 import HoursCalculator from "./Component/HoursCalculator";
 import { useState } from "react";
+import MonthHours from "./Component/MonthHours";
+
 const MultiCalculator = ()=>{
     const[links,setLinks] =useState([
         {
-            name:"HOURS CALCULATOR",
+            name:"Day Hours Calculator",
             element:<HoursCalculator/>,
             selected:true
-        }
+        },
+        {
+            name:"Calculate Hours By Dates",
+            element:<MonthHours/>,
+            selected:false
+        },
     ]);
 
     const handleChanges= (name)=>{
