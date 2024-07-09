@@ -1,18 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.8ba93f63.css",
-    "main.js": "/static/js/main.cbecde5d.js",
+    "main.css": "/static/css/main.fdeaebff.css",
+    "main.js": "/static/js/main.b31490f6.js",
     "static/js/787.e487aca3.chunk.js": "/static/js/787.e487aca3.chunk.js",
-    "static/media/camera-man2.jpg": "/static/media/camera-man2.244596d101f4747f7c99.jpg",
-    "static/media/camera-man.jpg": "/static/media/camera-man.7f8854b7e66f2183ad33.jpg",
-    "static/media/signature.jpg": "/static/media/signature.7ab47e229ae9d3a99e79.jpg",
+    "static/media/sasol_logo.png": "/static/media/sasol_logo.0375d0726ab6bd1e7f47.png",
     "index.html": "/index.html",
-    "main.8ba93f63.css.map": "/static/css/main.8ba93f63.css.map",
-    "main.cbecde5d.js.map": "/static/js/main.cbecde5d.js.map",
+    "main.fdeaebff.css.map": "/static/css/main.fdeaebff.css.map",
+    "main.b31490f6.js.map": "/static/js/main.b31490f6.js.map",
     "787.e487aca3.chunk.js.map": "/static/js/787.e487aca3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8ba93f63.css",
-    "static/js/main.cbecde5d.js"
+    "static/css/main.fdeaebff.css",
+    "static/js/main.b31490f6.js"
   ]
 }
