@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/static/css/main.fdeaebff.css",
-    "main.js": "/static/js/main.b31490f6.js",
+    "main.js": "/static/js/main.7d8aec49.js",
     "static/js/787.e487aca3.chunk.js": "/static/js/787.e487aca3.chunk.js",
     "static/media/sasol_logo.png": "/static/media/sasol_logo.0375d0726ab6bd1e7f47.png",
     "index.html": "/index.html",
     "main.fdeaebff.css.map": "/static/css/main.fdeaebff.css.map",
-    "main.b31490f6.js.map": "/static/js/main.b31490f6.js.map",
+    "main.7d8aec49.js.map": "/static/js/main.7d8aec49.js.map",
     "787.e487aca3.chunk.js.map": "/static/js/787.e487aca3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fdeaebff.css",
-    "static/js/main.b31490f6.js"
+    "static/js/main.7d8aec49.js"
   ]
 }
