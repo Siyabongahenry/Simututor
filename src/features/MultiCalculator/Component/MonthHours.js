@@ -250,7 +250,7 @@ const MonthHours = () => {
           <div className="row">
             <div className="col-12 col-lg-6">
               <div className="text-center p-2 border"  style={{height:"100%"}}>
-                  <h6 className="text-center p-2 bg-light">VARIABLE CALENDAR</h6> 
+                  <h6 className="text-center p-2 bg-light">DATE RANGE</h6> 
                   <div className="p-2">
                       <div className="d-inline-block p-2">
                           <label>Start Date</label>&nbsp;
@@ -266,7 +266,7 @@ const MonthHours = () => {
             </div>
             <div className ="col-12 col-lg-6">  
                 <div className="border p-2" style={{height:"100%"}}>
-                      <h6 className="bg-light p-2 text-center">COMPANY HOURS</h6>
+                      <h6 className="bg-light p-2 text-center">OPERATION HOURS PER DAY</h6>
                       {
                         days.map((day,index)=>
                         <div className="d-inline-block p-2" key={index}>
@@ -281,7 +281,7 @@ const MonthHours = () => {
             
             <div className="col-12 col-lg-6" style={{fontSize:"12px"}}>
               <div className="text-start border p-2 mt-2">
-                    <h6>CALCULATE TOTAL HOURS</h6>
+                    <h6>CALCULATED TOTAL DAYS AND HOURS</h6>
                     <p>
                       <label>
                         <input type="checkbox" name="excludeHolidays" onChange={calcInputHandler} checked={state.calcSettings.excludeHolidays}/>&nbsp;
@@ -303,7 +303,7 @@ const MonthHours = () => {
                     <div className="row text-center">
                       <div className="col-6">
                               <div className="p-2 m-1 bg-light border">
-                                <h6 className="fw-bold">Total Working Days:&nbsp;</h6>
+                                <h6 className="fw-bold">Total Days:&nbsp;</h6>
                                 <p className="d-inline-block display-6">
                                     {
                                       getTotalDays()
@@ -313,7 +313,7 @@ const MonthHours = () => {
                         </div>
                         <div className="col-6"  >
                           <div className="p-2 m-1 bg-light border">
-                              <h6 className="fw-bold">Total Hours Worked:</h6>
+                              <h6 className="fw-bold">Total hours:</h6>
                               <p className="d-inline-block display-6">
                                   {
                                     calcTotalHours()

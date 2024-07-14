@@ -1,6 +1,6 @@
 :root{
-    --bg-theme:#282c34;
-    --text-theme:#61dafb;
+    --bg-theme:whitesmoke;
+    --text-theme:black;
     --nav-height:60px;
     --footer-height:120px;
   }

@@ -1,15 +1,15 @@
 import "./index.css";
-import{FaPhone,FaEnvelope, FaWhatsapp, FaLinkedinIn} from "react-icons/fa";
+import{FaEnvelope, FaFacebook} from "react-icons/fa";
 export default function Footer()
 {
     return(
-        <footer className="text-theme text-center p-2 border-top"> 
-            <h4>Contacts</h4>  
+        <footer className="text-theme text-center p-2 border-top bg-light"> 
             <div className="p-2">
-                <a style={{textDecoration:"none"}}  className="text-theme" href="mailto:admin@simututors.com"><FaEnvelope/>&nbsp;admin@simututors.com</a>
+                <a style={{textDecoration:"none"}}  className="btn btn-success" href="mailto:admin@simututors.com"><FaEnvelope/>&nbsp;admin@mechvil.com</a>&nbsp;
+                <a  style={{textDecoration:"none"}}  className="btn btn-success" href="https://www.facebook.com/profile.php?id=61560116647159&mibextid=ZbWKwL"><FaFacebook/>&nbsp;Mech Vil</a>
             </div> 
             <div className="text-center text-theme">
-               <small>&copy;2023 - simututors.com</small>
+               <small>&copy;2023 - mechvil.com</small>
             </div>
         </footer>
     );

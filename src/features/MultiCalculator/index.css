@@ -1,0 +1,16 @@
+.btn-nav,.btn-nav-selected{
+    background-color: var(--bg-theme);
+    color:var(--text-theme);
+    margin-bottom:4px;
+    margin-left:4px;
+}
+
+.btn-nav-selected{
+    box-shadow:2px 2px 2px white;
+}
+
+.btn-calculator{
+    background-color: var(--bg-theme);
+    box-shadow:4px 4px 2px silver;
+    color:white;
+}

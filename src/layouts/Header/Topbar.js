@@ -8,7 +8,7 @@ export default function Topbar({sidebarToddler=f=>f,hideSidebar=f=>f}){
             <ul className="topbar">
                 <li><button  onClick={()=>{sidebarToddler(true)}}><FaBars className="nav-item"/></button></li>
                 <li>
-                    <NavLink to="/"  onClick={hideSidebar}><b>Awehello.</b><small className="text-white">com</small></NavLink>
+                    <NavLink to="/"  onClick={hideSidebar}><b>Mech<span className="text-success">Vil</span></b><small className="text-white">com</small></NavLink>
                 </li>
                 <li>
                    <FaMarker/>

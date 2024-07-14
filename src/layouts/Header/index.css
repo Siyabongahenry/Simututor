@@ -5,7 +5,6 @@ header{
     width:100%;
     font-size: 1.5em;
     box-shadow: 1px 1px 2px var(--text-theme);
-    color:white;
     height:var(--nav-height);
     line-height:var(--nav-height);
     z-index: 10;

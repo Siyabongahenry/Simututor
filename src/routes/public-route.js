@@ -1,19 +1,17 @@
 import { Route,Routes} from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
-import SignupPage from "../pages/SignupPage";
 import MathematicsPage from "../pages/MathematicsPage";
 import PhysicsPage from "../pages/PhysicsPage";
 import ChemistryPage from "../pages/ChemistryPage";
 import AboutPage from "../pages/AboutPage";
 import UniApplicationPage from "../pages/UniApplicationPage";
-import CV from "../features/CV";
-import Letter from "../features/Letter";
-import PhotoShoot from "../features/PhotoShoot";
 import MultiCalculator from "../features/MultiCalculator";
 import HRAdmin from "../features/HRAdmin";
 import CollegeApp from "../features/collegeApp";
-import BookingForm from "../features/PhotoShoot/Component/BookingForm";
+import Jobs from "../features/Jobs";
+import Government from "../features/Government";
+
 
 export default function PublicRoute()
 {
@@ -33,23 +31,10 @@ export default function PublicRoute()
             path:"/college",
             element:<CollegeApp/>,
             childrens:[]
-        }
-        ,
+        },
         {
-            path:"/cv/*",
-            element:<CV/>,
-            childrens:[]
-        }
-        ,
-        {
-            path:"/letter/*",
-            element:<Letter/>,
-            childrens:[]
-        }
-        ,
-        {
-            path:"/photoshoot",
-            element:<PhotoShoot/>,
+            path:"/jobs",
+            element:<Jobs/>,
             childrens:[]
         },
         {
@@ -88,12 +73,7 @@ export default function PublicRoute()
             childrens:[]
         },
         {
-            path:"/login",
-            element:<LoginPage/>,
-            childrens:[]
-        },
-        {
-            path:"/about/*",
+            path:"/about",
             element:<AboutPage/>,
             childrens:[]
         },
@@ -108,8 +88,8 @@ export default function PublicRoute()
             childrens:[]
         },
         {
-            path:"/photoshoot/bookings/*",
-            element:<BookingForm/>,
+            path:"/government/",
+            element:<Government/>,
             childrens:[]
         }
 

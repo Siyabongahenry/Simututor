@@ -1,12 +1,16 @@
 .link-container h2{
-    height:100px;
+    height:3em;
+    line-height: 1em;
     overflow: hidden;
+    padding:1%;
 }
-.btn-link{
-    background-color:var(--text-theme);
-    color:var(--bg-theme);
-    padding:2%;
-    display: block;
-    border-radius: 5px;
-    text-decoration: none;
+.link-container{
+    box-shadow:2px 2px 5px;
+}
+.link-name{
+    background-color: rgb(187, 240, 187);
+}
+.home-link-info{
+    height:4em;
+    line-height: 1em;
 }

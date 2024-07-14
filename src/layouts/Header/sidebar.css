@@ -13,10 +13,17 @@
 .sidebar li{
     padding-left: 10%;
 }
+.sidebar li:hover{
+    background-color: lightgreen;
+}
 .hide-sidebar{
     margin-left:-100%;
 }
 
 .show-sidebar{
     margin-left:0%;
+}
+
+.icon-black{
+    color:black;
 }

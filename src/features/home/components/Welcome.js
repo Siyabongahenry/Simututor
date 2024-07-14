@@ -2,9 +2,6 @@ import "./welcome.css";
 import Chatbox from "./Chatbox";
 import { FaMarker } from "react-icons/fa";
 
-const messages = ["Relax you got this.."];
-
-let isFirstRender = true;
 
 export default function Welcome()
 {
@@ -19,7 +16,7 @@ export default function Welcome()
                 <ellipse className="mouth" cx="50" cy="60" rx="15" ry="3" stroke="white"/>
             </svg>      
             <div className="p-2">
-                <Chatbox  message="Relax and do your thing."/>
+                <Chatbox  message="You've reached the end."/>
             </div>          
         </div> 
     );

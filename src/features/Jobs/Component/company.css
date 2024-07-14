@@ -1,0 +1,19 @@
+.company-container{
+    margin:2%;
+    padding:2%;
+    border:1px solid gray;
+    box-shadow: 1px 1px 1px gray;
+}
+
+.btn-vac{
+    text-decoration: none;
+    font-display: block;
+    background-color: rgba(144, 238, 144, 0.468);
+    padding:2%;
+    border-radius: 5px;
+    color: green;
+}
+
+.btn-vac:hover{
+    background-color: rgba(144, 238, 144, 0.59);
+}

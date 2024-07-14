@@ -1,4 +1,3 @@
-import "./calendar.css";
 
 const Calendar = ({getWeeks,getHolidays,getDateWeekDay}) =>{
 

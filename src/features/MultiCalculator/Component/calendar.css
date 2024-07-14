@@ -21,8 +21,8 @@
 }
 
 .calendar table th{
-    color:black;
-    background-color:lightblue;
+    background-color:var(--bg-theme);
+    color:var(--text-theme);
 }
 
 .calendar table td,.calendar table th{

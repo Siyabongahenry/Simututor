@@ -1,19 +1,15 @@
-import HoursCalculator from "./Component/HoursCalculator";
+import "./index.css";
 import { useState } from "react";
 import MonthHours from "./Component/MonthHours";
 
 const MultiCalculator = ()=>{
     const[links,setLinks] =useState([
+       
         {
-            name:"Day Hours Calculator",
-            element:<HoursCalculator/>,
-            selected:true
-        },
-        {
-            name:"Calculate Hours By Dates",
+            name:"Calculate days and hours by date range",
             element:<MonthHours/>,
-            selected:false
-        },
+            selected:true
+        }
     ]);
 
     const handleChanges= (name)=>{
@@ -31,7 +27,7 @@ const MultiCalculator = ()=>{
             <div className="text-center">
                 {
                     links.map(({name,selected},index)=>(
-                         <button key={name} onClick={()=>{handleChanges(name)}} className={`btn m-2 ${selected?"btn-primary":"btn-outline-primary"}`}>{name}</button>
+                         <button key={name} onClick={()=>{handleChanges(name)}} className={`${selected?"btn-nav-selected":"btn-nav"}`}>{name}</button>
                     ))
                 }
             </div>

@@ -1,55 +1,31 @@
-import { useState } from "react";
-import {FaAngleDown,FaAngleUp, FaComment,FaInfoCircle,FaMobile,FaUniversity} from "react-icons/fa";
-import ApplicantHelper from "./ApplicantHelper";
+import "./university.css";
+import {FaDownload, FaHome,FaInfoCircle, FaMobile} from "react-icons/fa";
 
 export default function University({uni})
 {
-    const[showDetails,setShowDetails] = useState(false);
-    const[showHelper,setHelper] = useState(false);
+
     return(
-        <section className="p-2 bg-white mt-2">
-            <h2 className="text-center bg-theme text-theme p-2"><FaUniversity/>&nbsp;{uni.name}</h2>
-            <p className="text-center">
-                <button className="btn btn-info" onClick={()=>{setShowDetails(!showDetails)}}>
-                    {
-                        showDetails?
-                        <><FaInfoCircle/>&nbsp;Hide details&nbsp;<FaAngleUp/></>:
-                        <><FaInfoCircle/>&nbsp;View details&nbsp;<FaAngleDown/></>
-                    }
-                </button>
-            </p>
-            {
-                showDetails &&
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Opening Date</td>
-                            <td>{uni.openingDate}</td>
-                        </tr>
-                        <tr>
-                            <td>Closing Date</td>
-                            <td>{uni.closingDate}</td>
-                        </tr>
-                        <tr>
-                            <td>Applications Fee</td>
-                            <td>{uni.applicationFee}</td>
-                        </tr>
-                       </tbody>
-                </table>
-            }
-            <p className="text-center">
-                <a className="btn btn-primary" href={uni.link} target="_blank" rel="noopener noreferrer"><FaMobile/>&nbsp;Apply</a>
-            </p>
-            <p className="text-center">
-               <button className="btn btn-secondary" onClick={()=>{setHelper(!showHelper)}}><FaComment/>&nbsp;Assist with my applications</button>
-            </p>
-            {showHelper && <ApplicantHelper hideHelper={setHelper}/>}
+        <section className="p-2 m-2 uni-container">
+            <h2 className="text-center bg-theme text-theme p-2">{uni.name}</h2>
+            <div className="uni-link-container">
+                <div className="uni-link">
+                   <a className="text-success" href={uni.link} target="_blank" rel="noopener noreferrer"><FaHome/></a>
+               </div>
+               <div className="uni-link">
+                 <a className="text-success" href={uni.link} target="_blank" rel="noopener noreferrer">Prospector <FaDownload/></a>
+               </div>
+            </div>
+            <div className="text-center">
+                <div className="uni-info-container" >
+                    <div className="text-start fw-bold"><FaInfoCircle/>&nbsp;Institution info</div>
+                    <div>Opening Date: {uni.openingDate}</div>
+                    <div>Closing Date: {uni.closingDate}</div>
+                    <div> Applications Fee: R {uni.applicationFee}</div>
+                </div>
+                 <div className="d-inline-block">
+                    <a className="btn btn-success" href={uni.link} target="_blank" rel="noopener noreferrer"><FaMobile/> Online application</a>
+                </div>
+            </div>        
             
         </section>
     )
