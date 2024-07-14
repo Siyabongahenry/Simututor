@@ -3,11 +3,6 @@
     margin:1%;
     border:1px solid silver;
 }
-.institution-container h2{
-    line-height: 1em;
-    height: 2em;
-    background-color: rgba(245, 245, 245, 0.582);
-}
 
 .institution-info-container{
     font-size: 14px;

@@ -5,7 +5,7 @@ export const organizationsData = [
         homePage:"https://www.nsfas.org.za/content/",
         appLink:"https://my.nsfas.org.za/",
         facebookPage:"https://www.facebook.com/nsfas.org.za",
-        linkedInPage:"https://www.linkedin.com/company/sars",
+        linkedInPage:"",
         twitterPage:"https://twitter.com/myNSFAS",
         youtubePage:"",
         instagramPage:"https://www.instagram.com/mynsfas/",
@@ -33,7 +33,7 @@ export const organizationsData = [
         twitterPage:"https://www.twitter.com/sarstax",
         youtubePage:"https://www.youtube.com/sarstax",
         instagramPage:"",
-        whatsappPage:""
+        whatsappPage:"https://wa.me/27800117277?text=Hi"
     },
     {
         name:"SARS Efiling Login",
@@ -45,7 +45,7 @@ export const organizationsData = [
         twitterPage:"https://www.twitter.com/sarstax",
         youtubePage:"https://www.youtube.com/sarstax",
         instagramPage:"",
-        whatsappPage:""
+        whatsappPage:"https://wa.me/27800117277?text=Hi"
     },
     {
         name:"CIPC",

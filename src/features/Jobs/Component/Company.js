@@ -17,6 +17,7 @@ const Company = ({company})=>{
     return(
         <div className="company-container bg-white">
             <h2 className="text-center">{company.name}</h2>
+            <hr/>
             <div className="text-center p-2">
                 <a className="btn-vac" href={company.vacanciesLink}>Vacancies</a>
             </div>

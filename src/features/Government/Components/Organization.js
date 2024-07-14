@@ -1,4 +1,4 @@
-import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedinIn, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa";
 const Organization = ({organization})=>{
     return(
         <div className="box-shadow m-2 bg-white p-2 text-center">
@@ -9,12 +9,12 @@ const Organization = ({organization})=>{
                 <a className="btn btn-primary" href={organization.appLink}>Online Application</a>
             </p>
             <p> 
-                <a className="btn btn-light text-primary" href={organization.facebookPage}><FaFacebook/></a>
-                <a className="btn btn-light text-primary" href={organization.twitterPage}><FaTwitter/></a>
-                <a className="btn btn-light text-primary" href={organization.linkedInPage}><FaLinkedinIn/></a>
-                <a className="btn btn-light text-primary" href={organization.whatsappPage}><FaLinkedinIn/></a>
-                <a className="btn btn-light text-primary" href={organization.instagramPage}><FaInstagram/></a>
-                <a className="btn btn-light text-primary" href={organization.youtubePage}><FaYoutube/></a>
+                {organization.facebookPage && <a className="btn btn-light text-primary" href={organization.facebookPage}><FaFacebook/></a>}
+                {organization.twitterPage && <a className="btn btn-light text-primary" href={organization.twitterPage}><FaTwitter/></a>}
+                {organization.linkedInPage && <a className="btn btn-light text-primary" href={organization.linkedInPage}><FaLinkedinIn/></a>}
+                {organization.whatsappPage && <a className="btn btn-light text-primary" href={organization.whatsappPage}><FaWhatsapp/></a>}
+                {organization.instagramPage && <a className="btn btn-light text-primary" href={organization.instagramPage}><FaInstagram/></a>}
+                {organization.youtubePage && <a className="btn btn-light text-primary" href={organization.youtubePage}><FaYoutube/></a>}
             </p>
         </div>
     );

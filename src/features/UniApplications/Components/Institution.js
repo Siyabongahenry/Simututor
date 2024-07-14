@@ -18,7 +18,8 @@ export default function Institution({institute})
 
     return(
         <section className="p-2 m-2 institution-container bg-white">
-            <h2 className="text-center bg-theme text-theme p-2">{institute.name}</h2>
+            <h2 className="text-center">{institute.name}</h2>
+            <hr/>
             <div className="institution-links-container">
                 <div className="institution-link">
                    <a className="btn btn-light text-success" href={institute.link} target="_blank" rel="noopener noreferrer"><FaHome/></a>
