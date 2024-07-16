@@ -29,6 +29,24 @@ export default function Sidebar({displayClass,hide=f=>f})
             icon:"",
             children:[]
         },
+        {
+            name:"Government",
+            to:"/government",
+            icon:"",
+            children:[]
+        },
+        {
+            name:"Create your CV",
+            to:"/cv",
+            icon:"",
+            children:[]
+        },
+        {
+            name:"Write your letter",
+            to:"/letter",
+            icon:"",
+            children:[]
+        },
         /*
         {
             name:"HR ADMIN",
@@ -63,7 +81,7 @@ export default function Sidebar({displayClass,hide=f=>f})
         }
         ,*/
         {
-            name:"Days and Hours calculator",
+            name:"Days and hours calculator",
             to:"/multicalculator",
             icon:<FaCalculator/>,
             children:[]

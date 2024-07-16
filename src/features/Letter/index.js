@@ -64,7 +64,7 @@ export default function Letter()
 
     return(
         <div>
-            <h1 className="text-center text-theme">Create your formal letter</h1>
+            <h1 className="text-center text-theme" style={{fontSize:"18px"}}>Create your formal letter</h1>
             <InputTemplate saveChanges={saveChanges}   handleInput={handleInput} handleSignatureInput={handleSignatureInput}  details={details}/>
             <OutputTemplate details={details} signature={signature} clearLetter={clearLetter}/>
         </div>

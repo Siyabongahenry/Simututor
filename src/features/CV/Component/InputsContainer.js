@@ -7,8 +7,8 @@ export default function InputsContainer({icon="",headerText,savefunc=f=>f,childr
         toggle();
     }
     return(
-        <section className="p-2 m-2 border rounded  text-white" style={{cursor:"pointer"}}>
-            <h4 style={{cursor:"pointer"}} className="text-center" onClick={toggle}>{icon}&nbsp;{headerText}&nbsp;{opened?<FaAngleUp/>:<FaAngleDown/>}</h4>
+        <section className="p-2 m-2 border rounded" style={{cursor:"pointer"}}>
+            <h4 style={{cursor:"pointer",fontSize:"16px"}} className="text-center" onClick={toggle}>{icon}&nbsp;{headerText}&nbsp;{opened?<FaAngleUp/>:<FaAngleDown/>}</h4>
             {
                 opened &&
                 <>

@@ -6,7 +6,7 @@ const InputContainer = ({name,children,value,saveChanges})=>{
     return(
         <div className="p-2 m-2 border rounded">
             <div>
-               <h4 style={{cursor:"pointer"}} className="text-center" onClick={()=>{setInputContainer(!inputContainer)}}> {name}&nbsp;{inputContainer?<FaAngleUp/>:<FaAngleDown/>}</h4>
+               <h4 style={{cursor:"pointer",fontSize:"16px"}} className="text-center" onClick={()=>{setInputContainer(!inputContainer)}}> {name}&nbsp;{inputContainer?<FaAngleUp/>:<FaAngleDown/>}</h4>
             </div>
             <div>
                 {

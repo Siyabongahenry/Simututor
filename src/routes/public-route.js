@@ -11,6 +11,8 @@ import HRAdmin from "../features/HRAdmin";
 import CollegeApp from "../features/collegeApp";
 import Jobs from "../features/Jobs";
 import Government from "../features/Government";
+import CV from "../features/CV";
+import Letter from "../features/Letter";
 
 
 export default function PublicRoute()
@@ -90,6 +92,16 @@ export default function PublicRoute()
         {
             path:"/government/",
             element:<Government/>,
+            childrens:[]
+        },
+        {
+            path:"/cv/",
+            element:<CV/>,
+            childrens:[]
+        },
+        {
+            path:"/letter/",
+            element:<Letter/>,
             childrens:[]
         }
 

@@ -1,11 +1,11 @@
 import CreateCV from "./Component/CreateCV";
 import { createContext, useEffect, useState } from "react";
 import InputTemplate from "./Component/InputTemplate";
+import { FaPen } from "react-icons/fa";
 
 export const CVOwnerContext = createContext();
-export default function Index()
+export default function CV()
 {
-    const[cvList,setList] = useState([]);
 
     const[cvOwnerDetails,setCVOwnerDetails] = useState(
         {
@@ -51,7 +51,6 @@ export default function Index()
                 color:"Black",
                 margin:"auto",
                 width:"210mm",
-                Height:"297mm",
                 marginTop:"5mm",
                 padding:"5mm",
                 fontSize:"11pt",
@@ -181,7 +180,7 @@ export default function Index()
     return(
         <CVOwnerContext.Provider value={cvOwnerDetails}>
             <div className="container text-theme">
-                <h1 className="text-center">Create your CV</h1>
+                <h1 className="text-center" style={{fontSize:"18px"}}><FaPen/> Create your CV</h1>
                 <InputTemplate cvOwnerDetails={cvOwnerDetails} saveChanges={saveChanges}/>
                 <CreateCV cvOwnerDetails={cvOwnerDetails} saveTheme={saveTheme}/>       
             </div>

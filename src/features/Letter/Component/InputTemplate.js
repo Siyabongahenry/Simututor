@@ -45,7 +45,7 @@ export default function InputTemplate({handleInput,handleSignatureInput,details,
     }
 
     return(
-        <div className="container p-2 text-white">
+        <div className="container p-2">
             <div className="row">
                 <div className="col-12 col-lg-6">
                     <InputContainer name="Sender Postal Address"  value={details.address1} saveChanges={saveChanges}>

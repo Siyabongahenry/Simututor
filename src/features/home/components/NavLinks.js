@@ -21,15 +21,24 @@ export default function NavLinks(){
             name:"Goverment",
             to:"/government",
             description:"NSFAS Funding, SARS Efiling, Company Registrations CIPC, Traffic Department"
+        },
+        {
+            name:"Create your CV",
+            to:"/cv",
+            description:"Create and Edit your CV"
+        },
+        {
+            name:"Write your Formal Letter",
+            to:"/letter",
+            description:"Write and add a signature to your letter"
         }
     ]
     const navLink=(name,to,description)=>{
         return(
             <div className="col-12 col-md-6 bg-white" key={name}>
                 <section className="m-1 text-center p-2 link-container">
-                    <h2 className="link-name">
-                        {name}
-                    </h2>
+                    <h2 className="link-name">{name}</h2>
+                    <hr/>
                     <div className="home-link-info">
                         {description}
                     </div>

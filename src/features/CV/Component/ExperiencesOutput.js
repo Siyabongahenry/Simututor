@@ -8,7 +8,7 @@ export default function ExperiencesOutput({experiences})
              {
                 experiences.map((exp,index)=>
                     <div key={exp.id}>
-                        <PropLabelAndValue labelName="Company Name" value={exp.companyName}/>
+                        <h6 style={{color:"#015289"}}>{exp.companyName}</h6>
                         <PropLabelAndValue labelName="Position" value={exp.position}/>
                         <PropLabelAndValue labelName="Start Date" value={exp.startDate}/>
                         <PropLabelAndValue labelName="End Date" value={exp.endDate}/>

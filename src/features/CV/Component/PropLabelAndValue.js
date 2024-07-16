@@ -3,8 +3,9 @@ export default function PropLabelAndValue({labelName,value}){
         float:"left",
         padding:"0",
         margin:"0",
-        lineHeight:"2",
+        lineHeight:"1.5",
         width:"90mm",
+        fontSize:"12px"
 
     }
     return(
