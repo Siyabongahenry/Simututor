@@ -1,6 +1,6 @@
 import "./sidebar.css";
 import{NavLink} from "react-router-dom";
-import {FaHome,FaCalculator, FaInfoCircle, FaUniversity, FaFile, FaPhotoVideo, FaBook, FaUserShield} from "react-icons/fa";
+import {FaHome,FaCalculator, FaInfoCircle, FaUniversity} from "react-icons/fa";
 
 export default function Sidebar({displayClass,hide=f=>f})
 {
@@ -81,7 +81,7 @@ export default function Sidebar({displayClass,hide=f=>f})
         }
         ,*/
         {
-            name:"Days and hours calculator",
+            name:"Calendar",
             to:"/multicalculator",
             icon:<FaCalculator/>,
             children:[]

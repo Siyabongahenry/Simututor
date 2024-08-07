@@ -89,7 +89,7 @@ const Institutions = ({institutionsData=[],type=""})=>{
                             <b>Filter By Provinces:</b>&nbsp;
                             <select value={selectedProv} onChange={filterByProvince}>
                                 {
-                                    ["All","Easten Cape","Free State","Guateng","Kwazulu Natal","Limpopo","Mpumalanga","Northen Cape","North West","Westen Cape"]
+                                    ["All","Eastern Cape","Free State","Guateng","Kwazulu Natal","Limpopo","Mpumalanga","Northen Cape","North West","Westen Cape"]
                                     .map(
                                         prov=><option key={prov} value={prov}>{prov}</option>
                                     )

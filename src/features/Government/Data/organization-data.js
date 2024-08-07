@@ -58,5 +58,17 @@ export const organizationsData = [
         youtubePage:"https://www.youtube.com/c/theCIPC",
         instagramPage:"",
         whatsappPage:""
+    },
+    {
+        name:"PSIRA",
+        description:"Register and Download your PSIRA",
+        homePage:"https://www.psira.co.za/",
+        appLink:"https://digitalservices.psira.co.za/claim-profile",
+        facebookPage:"https://www.facebook.com/psiralive/",
+        linkedInPage:"https://www.linkedin.com/company/psira/?original_referer=http%3A%2F%2F192.168.1.49%2F",
+        twitterPage:"https://twitter.com/psiralive",
+        youtubePage:"https://www.youtube.com/@psiralive2294/videos",
+        instagramPage:"https://www.instagram.com/psiralive/",
+        whatsappPage:""
     }
 ]

@@ -33,6 +33,13 @@ const reducer = (state,action)=>{
           ...action.dateRange
         }
       };
+    case "OUTPUT_RESULTS":
+      return {
+        ...state,
+        dates:action.dates,
+        totalDays:action.totalDays,
+        totalHours:action.totalHours
+      }
     default:
       return state;
   }
@@ -62,7 +69,10 @@ const MonthHours = () => {
       excludeHolidays:true,
       excludeSundays:false,
       excludeSaturdays:false
-    }
+    },
+    dates:[],
+    totalDays:0,
+    totalHours:0
   });
 
  //return dates of specified range
@@ -72,13 +82,17 @@ const MonthHours = () => {
     const startDate = dateRange.startDate;
     const endDate = dateRange.endDate;
 
+    if(Math.abs(endDate.getFullYear() - startDate.getFullYear())>1) return [];
+
     let _dates = [];
+
+    
          
     for(let date = new Date(startDate.getTime());datesLessThanOrEquals(date,endDate);date.setDate(date.getDate()+1)){
-
-        _dates.push(new Date(date.getTime()));
-            
+        _dates.push(new Date(date.getTime()));       
     }
+
+    
 
     return _dates;
 }
@@ -210,10 +224,15 @@ const MonthHours = () => {
   }
 
   const dateRangeInputHandler = (e)=>{
+    let _date = new Date(e.target.value);
+
+    //check if date is valid
+    if(isNaN(_date)) return;
+
     dispatch({  
         type:"MODIFY_DATE_RANGE",
         dateRange:{
-          [e.target.name]:new Date(e.target.value)
+          [e.target.name]:_date
         }
       });
   }
@@ -241,7 +260,18 @@ const MonthHours = () => {
         dateOfMonth = "0"+dateOfMonth;
     }
 
+
     return year+"-"+month+"-"+dateOfMonth;
+  }
+
+  const executeHandler=()=>{
+    dispatch({
+      type:"OUTPUT_RESULTS",
+      dates:getDates(),
+      totalDays:getTotalDays(),
+      totalHours:calcTotalHours()
+    }
+    );
   }
 
  
@@ -260,8 +290,11 @@ const MonthHours = () => {
                           <label>End Date</label>&nbsp;
                           <input type="date" name="endDate" value={formatDate(state.dateRange.endDate)} onChange={dateRangeInputHandler}/>
                       </div>
+                      <div>
+                         <button className="btn btn-primary" onClick={executeHandler}>Execute</button>
+                      </div>
                   </div>
-                  <ControlledCalendar dates={getDates()} isHoliday={dateIsHoliday}/>
+                  <ControlledCalendar dates={state.dates} isHoliday={dateIsHoliday}/>
               </div>      
             </div>
             <div className ="col-12 col-lg-6">  
@@ -306,7 +339,7 @@ const MonthHours = () => {
                                 <h6 className="fw-bold">Total Days:&nbsp;</h6>
                                 <p className="d-inline-block display-6">
                                     {
-                                      getTotalDays()
+                                      state.totalDays
                                     }
                                 </p>
                               </div>
@@ -316,7 +349,7 @@ const MonthHours = () => {
                               <h6 className="fw-bold">Total hours:</h6>
                               <p className="d-inline-block display-6">
                                   {
-                                    calcTotalHours()
+                                    state.totalHours
                                   }
                               </p>
                             </div>
