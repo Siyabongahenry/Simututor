@@ -35,14 +35,13 @@ export default function NavLinks(){
     ]
     const navLink=(name,to,description)=>{
         return(
-            <div className="col-12 col-md-6 bg-white" key={name}>
-                <section className="m-1 text-center p-2 link-container">
-                    <h2 className="link-name">{name}</h2>
-                    <hr/>
+            <div className="col-12 col-md-6" key={name}>
+                <section className="m-1 text-center p-2 link-container bg-white">
+                    <h2 className="link-name p-2">{name}</h2>
                     <div className="home-link-info">
                         {description}
                     </div>
-                    <Link className="btn btn-success" to={to}>VIEW</Link>
+                    <Link className="btn btn-success" to={to}>View</Link>
                 </section>
             </div>
         );

@@ -1,5 +1,5 @@
 import "./topbar.css";
-import {FaBars, FaMarker, FaPen} from "react-icons/fa";
+import {FaBars, FaMarker} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 export default function Topbar({sidebarToddler=f=>f,hideSidebar=f=>f}){
 

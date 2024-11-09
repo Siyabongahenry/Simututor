@@ -1,5 +1,17 @@
 export const organizationsData = [
     {
+        name:"SAYouth",
+        description:"Find opportunities near your area",
+        homePage:"https://sayouth.mobi/Home/Index/EN",
+        appLink:"https://sayouth.mobi/Home/Index/EN",
+        facebookPage:"https://www.facebook.com/SAYouth.mobi",
+        linkedInPage:"",
+        twitterPage:"https://x.com/SAYouth_SA",
+        youtubePage:"",
+        instagramPage:"https://www.instagram.com/sayouth.mobi/?hl=en",
+        whatsappPage:""
+    },
+    {
         name:"NSFAS",
         description:"Tertiary education funding",
         homePage:"https://www.nsfas.org.za/content/",

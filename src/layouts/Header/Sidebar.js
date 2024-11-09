@@ -98,7 +98,7 @@ export default function Sidebar({displayClass,hide=f=>f})
         <ul className={"sidebar "+displayClass}>
             {
                 links.map((link,index)=>
-                    <li className="nav-item" key={index}>
+                    <li className="nav-item" key={link.name}>
                         <NavLink to={link.to} onClick={hide}>{link.name}</NavLink>
                         {
                             link.children.length > 0 &&
